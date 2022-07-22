@@ -9,30 +9,30 @@ const Navbar = () => {
             <ul>
                 <div className='nav__top__left'>
                     <li className='nav__item'>
-                        <a>About</a>
+                        <a href='about'>About</a>
                     </li>
                     <li className='nav__item'>
-                        <a>Consultation</a>
+                        <a href='consultation'>Consultation</a>
                     </li>
                 </div>
                 <div className='nav__item__center'>
                     <li className='nav__item'>
-                        <a>sooth</a>
+                        sooth
                     </li>
                 </div>
                 
                 <div className='nav__top__right'>
                     <li className='nav__item'>
-                    <a>
+                    
                         <FontAwesomeIcon icon={faSearch}/>
-                    </a>
+                    
                     
                     </li>
                 <li className='nav__item'>
-                    <a>Cart</a>
+                    <a href='cart'>Cart</a>
                 </li>
                 <li className='nav__item'>
-                    <a>Login</a>
+                    <a href='login'>Login</a>
                 </li>
                 </div>
                 
@@ -42,19 +42,19 @@ const Navbar = () => {
         <div className='nav__bottom'>
             <ul>
                 <li className='nav__item__bottom'>
-                    <a>Acne</a>
+                    <a href='acne'>Acne</a>
                 </li>
                 <li className='nav__item__bottom'>
-                    <a>Sun</a>
+                    <a href='sun'>Sun</a>
                 </li>
                 <li className='nav__item__bottom'>
-                    <a>Ezcema</a>
+                    <a href='ezcema'>Ezcema</a>
                 </li>
                 <li className='nav__item__bottom'>
-                    <a>Psoriasis</a>
+                    <a href='psoriasis'>Psoriasis</a>
                 </li>
                 <li className='nav__item__bottom'>
-                    <a>Vitiligio</a>
+                    <a href='vitiligio'>Vitiligio</a>
                 </li>
             </ul>
         </div>
