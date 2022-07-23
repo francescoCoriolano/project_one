@@ -8,10 +8,15 @@
     color: #354E57;
     font-weight: bold;
 }
+a { 
+    text-decoration: none;
+    color: inherit;
+}
 .nav__top ul{
     list-style: none;
     display: flex;
     justify-content: space-between;
+
 }
 
 .nav__top__left{
