@@ -1,5 +1,5 @@
 
-import './App.css';
+import './App.scss';
 import Header from './Components/Header';
 import Navbar from './Components/Navbar';
 
