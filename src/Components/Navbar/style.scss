@@ -1,11 +1,17 @@
-.navbar{
-    height: 5.3rem;
-    margin: 2.75rem  5.3rem;
-}
+// @use '../../abstracts/variables';    
+//importing the varialble from variables.scss is not working, but I will dig more into it to find out why.
 
+//Temporarily I decleared the  @primary-text-color variable here
+$primary-text-color: #354E57;
+
+.navbar{
+    height: 7rem;
+    margin: 2.75rem  5.3rem;
+
+}
 .nav__item{
     letter-spacing: 0.6px;
-    color: #354E57;
+     color:$primary-text-color;
     font-weight: bold;
 }
 a { 
@@ -45,7 +51,7 @@ a {
     margin-top: 1.25rem;
     font-size: 2rem;
     letter-spacing: 1.6px;
-    color: #293D45;
+    color: $primary-text-color;
 }
 
 
@@ -63,5 +69,5 @@ a {
 .nav__bottom li {
     padding: 1.75rem 1.85rem 0 1.85rem;
     letter-spacing: 0.8px;
-    color: #354E57;
+    color: $primary-text-color;
 }
