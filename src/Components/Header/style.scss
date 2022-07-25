@@ -1,36 +1,39 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixin.scss';
+
 .header{
     width: 100vw;
     height: 80vh;
-    display: flex;
     background-color: #EEF3F4;
+    @include flex-direction-row;
+
     .header-text-container{
         width: 50%;
         height: 100%;
+
         .text-wrapper{
             margin-left: 8.75rem;
             text-align: start;
+
             .new-label{
-                display: flex;
-                justify-content:center ;
-                background-color: #FFFFFF;
-                width: 2rem;
                 margin-top: 6.87rem;
-                padding: 0.5rem 0.75rem;
-                font-size: 0.75rem;
+                @include new-label;
+                
             }
+
             .header-title{
-                font-size: 3rem;
+                font-size: $title-font;
                 padding:1rem 0;
             }
+
             .header-text{
                 line-height: 1.5rem;
                 
             }
+            
             .shop-btn{
                 margin-top: 1.75rem;
-                padding: 0.62rem 2.18rem;
-                font-weight: bold;
-                border: 1px solid black;
+                @include shop-btn;
             }
         }
     }

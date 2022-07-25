@@ -1,5 +1,4 @@
 //flexbox
-
 @mixin flex-center {
     display: flex;
     align-items: center;
@@ -43,4 +42,21 @@
 @mixin space-around{
     display: flex;
     justify-content: space-around;
+}
+
+
+//small-components
+@mixin new-label{
+    display: flex;
+    justify-content:center ;
+    background-color: #FFFFFF;
+    width: 2rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+@mixin shop-btn{
+    padding: 0.62rem 2.18rem;
+    font-weight: bold;
+    border: 1px solid black;
 }
