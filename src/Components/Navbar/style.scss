@@ -12,10 +12,12 @@
         font-weight: bold;
         font-size: 0.87rem;
     }
+
     a { 
         text-decoration: none;
         color: inherit;
     }
+
     .nav-top ul{
         list-style: none;
       @include space-between;
@@ -23,14 +25,17 @@
         .nav-top-left{
             @include flex-start;
             width: 40%;
+            
              li{
                 padding: 0.9rem 1.85rem 0.9rem 0;
                 text-transform: uppercase;  
             }
         }
+
         .nav-top-right{
             @include flex-end;
             width: 40%;
+
             li{
                padding: 0.9rem 0 0.9rem 1.4rem;
                text-transform: uppercase;
@@ -46,13 +51,16 @@
             font-weight: 500
         }
     }
+
     .nav-bottom {
          @include flex-center-all;
         height: 2rem;
+
          ul {
             list-style: none;
             @include flex-direction-row;
         }
+
          li {
             padding: 1.75rem 1.85rem 0 1.85rem;
             letter-spacing: 0.8px;
