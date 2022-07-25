@@ -1,66 +1,74 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixin.scss';
+
 .navbar{
-    height: 5.3rem;
-    margin: 2.75rem  5.3rem;
-}
+    height: 5rem;
+    padding: 2.75rem  5.3rem;
+    background-color: $bg-color-header;
 
-a { 
-    text-decoration: none;
-    color: inherit;
-}
-.nav__item{
-    letter-spacing: 0.6px;
-    color: #354E57;
-    font-weight: bold;
-}
-.nav__top ul{
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-}
+    .nav-item{
+        letter-spacing: 0.6px;
+         color:$primary-text-color;
+        font-weight: bold;
+        font-size: 0.87rem;
+    }
 
-.nav__top__left{
-    display: flex;
-    justify-content: flex-start;
-    width: 40%;
-}
+    a { 
+        text-decoration: none;
+        color: inherit;
+    }
 
-.nav__top__left li{
-    padding: 0.9rem 1.85rem 0.9rem 0;
-    text-transform: uppercase;  
-}
-
-.nav__top__right{
-    display: flex;
-    justify-content: flex-end;
-    width: 40%;
-}
-.nav__top__right li{
-    padding: 0.9rem 0 0.9rem 1.4rem;
-    text-transform: uppercase;
+    .nav-top ul{
+        list-style: none;
+      @include space-between;
     
+        .nav-top-left{
+            @include flex-start;
+            width: 40%;
+            
+             li{
+                padding: 0.9rem 1.85rem 0.9rem 0;
+                text-transform: uppercase;  
+            }
+        }
+
+        .nav-top-right{
+            @include flex-end;
+            width: 40%;
+
+            li{
+               padding: 0.9rem 0 0.9rem 1.4rem;
+               text-transform: uppercase;
+               
+           }
+        }
+        
+        .nav-item-center li{
+            margin-top: 1.25rem;
+            font-size: 2rem;
+            letter-spacing: 1.6px;
+            color: $primary-text-color;
+            font-weight: 500
+        }
+    }
+
+    .nav-bottom {
+         @include flex-center-all;
+        height: 2rem;
+
+         ul {
+            list-style: none;
+            @include flex-direction-row;
+        }
+
+         li {
+            padding: 1.75rem 1.85rem 0 1.85rem;
+            letter-spacing: 0.8px;
+            color: $primary-text-color;
+        }
+    }
 }
 
-.nav__item__center li{
-    margin-top: 1.25rem;
-    font-size: 2rem;
-    letter-spacing: 1.6px;
-    color: #293D45;
-}
 
 
-.nav__bottom {
-    display: flex;
-    justify-content: center;
-    height: 2rem;
-}
-.nav__bottom ul {
-    list-style: none;
-    display: flex;
 
-
-}
-.nav__bottom li {
-    padding: 1.75rem 1.85rem 0 1.85rem;
-    letter-spacing: 0.8px;
-    color: #354E57;
-}
