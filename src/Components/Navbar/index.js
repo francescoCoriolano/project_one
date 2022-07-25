@@ -5,33 +5,33 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 const Navbar = () => {
   return (
     <nav className='navbar'>
-        <div className='nav__top'>
+        <div className='nav-top'>
             <ul>
-                <div className='nav__top__left'>
-                    <li className='nav__item'>
+                <div className='nav-top-left'>
+                    <li className='nav-item'>
                         <a href='about'>About</a>
                     </li>
-                    <li className='nav__item'>
+                    <li className='nav-item'>
                         <a href='consultation'>Consultation</a>
                     </li>
                 </div>
-                <div className='nav__item__center'>
-                    <li className='nav__item'>
+                <div className='nav-item-center'>
+                    <li className='nav-item'>
                         sooth
                     </li>
                 </div>
                 
-                <div className='nav__top__right'>
-                    <li className='nav__item'>
+                <div className='nav-top-right'>
+                    <li className='nav-item'>
                     
                         <FontAwesomeIcon icon={faSearch}/>
                     
                     
                     </li>
-                <li className='nav__item'>
+                <li className='nav-item'>
                     <a href='cart'>Cart</a>
                 </li>
-                <li className='nav__item'>
+                <li className='nav-item'>
                     <a href='login'>Login</a>
                 </li>
                 </div>
@@ -39,21 +39,21 @@ const Navbar = () => {
             </ul>
             
         </div>
-        <div className='nav__bottom'>
+        <div className='nav-bottom'>
             <ul>
-                <li className='nav__item__bottom'>
+                <li className='nav-item-bottom'>
                     <a href='acne'>Acne</a>
                 </li>
-                <li className='nav__item__bottom'>
+                <li className='nav-item-bottom'>
                     <a href='sun'>Sun</a>
                 </li>
-                <li className='nav__item__bottom'>
+                <li className='nav-item-bottom'>
                     <a href='ezcema'>Ezcema</a>
                 </li>
-                <li className='nav__item__bottom'>
+                <li className='nav-item-bottom'>
                     <a href='psoriasis'>Psoriasis</a>
                 </li>
-                <li className='nav__item__bottom'>
+                <li className='nav-item-bottom'>
                     <a href='vitiligio'>Vitiligio</a>
                 </li>
             </ul>
