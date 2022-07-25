@@ -1,41 +1,40 @@
 .header{
     width: 100vw;
     height: 80vh;
-    border: 3px solid black;
     display: flex;
     background-color: #EEF3F4;
 }
 
 .header__text__container{
-width: 50%;
-height: 100%;
-border: 1px solid red;
-
+    width: 50%;
+    height: 100%;
 }
 
 .text__wrapper{
-    margin-left: 140px;
+    margin-left: 8.75rem;
     text-align: start;
 }
-.new{
+.new__label{
     display: flex;
     justify-content:center ;
     background-color: #FFFFFF;
     width: 2rem;
-    margin-top: 110px;
-    padding: 8px 12px;
-    font-size: 12px;
+    margin-top: 6.87rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
 }
 
 .header__title{
-    font-size: 48px;
+    font-size: 3rem;
+    padding:1rem 0;
 }
 .header__text{
     line-height: 1.5rem;
+    
 }
 .shop__btn{
-    margin-top: 28px;
-    padding: 10px 35px;
+    margin-top: 1.75rem;
+    padding: 0.62rem 2.18rem;
     font-weight: bold;
     border: 1px solid black;
 }
@@ -44,4 +43,9 @@ border: 1px solid red;
     width: 50%;
     height: 100%;
     
+}
+
+.header__img__container img {
+    max-width: 100%;
+    max-height: 100%;
 }
