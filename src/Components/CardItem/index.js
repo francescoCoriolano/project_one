@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 
-const CardItem = ({image, name, description, price}) => {
+const CardItem = ({image, name, description, price, label}) => {
   return (
     <div>
         <div className='card-item'>
             <div className='card-img'>
-                <div className='new-label'>New!</div>
+              {label && <div className='new-label'>{label}</div>}
                 <img src={image} alt="product-img"/>
             </div>
             <div className='item-description-wrapper'>
