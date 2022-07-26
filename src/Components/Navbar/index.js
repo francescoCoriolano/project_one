@@ -23,10 +23,7 @@ const Navbar = () => {
                 
                 <div className='nav-top-right'>
                     <li className='nav-item'>
-                    
                         <FontAwesomeIcon icon={faSearch}/>
-                    
-                    
                     </li>
                 <li className='nav-item'>
                     <a href='cart'>Cart</a>
@@ -35,9 +32,7 @@ const Navbar = () => {
                     <a href='login'>Login</a>
                 </li>
                 </div>
-                
             </ul>
-            
         </div>
         <div className='nav-bottom'>
             <ul>
