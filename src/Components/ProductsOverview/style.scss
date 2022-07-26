@@ -1,0 +1,24 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixin.scss';
+
+.products-overview{
+    width: 100vw;
+    height: 100vh;
+    background-color: $bg-color-main;
+    
+    .title-container{
+        height: 8.75rem;
+        border: 1px solid black;
+        text-align: center;
+        @include flex-direction-column;
+        @include flex-center-all;
+
+        h2{
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            
+        }
+
+}
+
+}

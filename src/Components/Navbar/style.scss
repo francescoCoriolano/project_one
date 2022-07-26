@@ -3,8 +3,8 @@
 
 .navbar{
     height: 5rem;
-    padding: 2.75rem  5.3rem ;
-    background-color: $bg-color-header;
+    padding: 2.75rem  5.3rem;
+    background-color: $bg-color-main;
 
     .nav-item{
         letter-spacing: 0.6px;
@@ -62,7 +62,6 @@
         }
 
          li {
-   
              padding: 1.75rem 1.85rem;
             letter-spacing: 0.8px;
             color: $primary-text-color;

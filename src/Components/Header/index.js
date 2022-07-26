@@ -12,7 +12,6 @@ const Header = () => {
           <p className='header-text'>A healthier you from the inside out. We've sourced the <br></br> cleanest ingredientes to create a line of clean skin care <br></br> treatments that leave you feeling your best</p>
           <button className='shop-btn' >Shop products</button>
         </div>
-
       </div>
       <div className='header-img-container'>
         <img src={headerImg} alt='product-img'/>
