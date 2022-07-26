@@ -20,5 +20,7 @@
         }
 
 }
-
+  .products-container{
+    @include flex-direction-row;
+  }
 }
