@@ -6,6 +6,7 @@
     height: 80vh;
     background-color: #EEF3F4;
     @include flex-direction-row;
+    
 
     .header-text-container{
         width: 50%;
@@ -34,6 +35,9 @@
             .shop-btn{
                 margin-top: 1.75rem;
                 @include shop-btn;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
     }
