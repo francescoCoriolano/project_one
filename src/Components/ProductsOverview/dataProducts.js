@@ -33,6 +33,7 @@ const dataProducts = [
         name: "Sunburn Ointment",
         description: "All Natural Ingredients.",
         price: "$18.99",
+        priceBeforeDiscount:"$24.99",
         label:"15%Off"
       },
     

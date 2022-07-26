@@ -7,7 +7,6 @@
     background-color: $bg-color-main;
     color: #354E57;
    
-    
     .title-container{
         height: 15vh;
         text-align: center;
@@ -20,34 +19,24 @@
             
         }
 
+        p{
+          font-weight: 500;
+        }
 }
+
 .category-products{
   height: 2rem;
   width: 68.5rem;
-  // border: 1px solid black;
   margin: auto;
   margin-top: 3rem;
   font-weight: 600;
   color: #2E2E22;
-
-
   @include space-between;
-  .popular-product{
-    // float: left;
+  }
 
-  }
-  .all-products{
-    // float: right
-  }
-}
   .products-container{
     @include flex-direction-row;
-    @include flex-center-all;
-    // height: 85vh;
-    // border: 1px solid black;
-    
-
-    
+    @include flex-center-all; 
   }
 
 }
