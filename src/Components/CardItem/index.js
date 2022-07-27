@@ -17,9 +17,8 @@ const CardItem = ({image, name, description, price, label, priceBeforeDiscount})
                 <p className='item-description'>{description}</p>
                 <div className='price-wrapper'>
                 <span className={`item-price ${priceBeforeDiscount ? "discount" : ""} `}>{price}</span>
-                {priceBeforeDiscount && <span className='item-price-discount'>{priceBeforeDiscount}</span> }
+                {priceBeforeDiscount && <span className='item-price-reduced'>{priceBeforeDiscount}</span> }
                 </div>
-                
                 <button className='add-product-btn'>
                 <FontAwesomeIcon icon={faCartShopping}/>  
                   <span>Add to cart</span>

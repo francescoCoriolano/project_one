@@ -2,6 +2,8 @@ import React from 'react'
 import CardItem from '../CardItem'
 import "./style.scss"
 import dataProducts from './dataProducts'
+
+
 const ProductsOverview = () => {
   return (
     <div className='products-overview'>
@@ -14,7 +16,6 @@ const ProductsOverview = () => {
         <span className='all-products'>Shop all products</span>
         </div>
       <div className='products-container'>
-      
       {dataProducts.map((item)=>{
         return(
           <CardItem {...item}/>
