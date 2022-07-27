@@ -10,10 +10,12 @@
         height: 21.6rem;
         // border: 1px solid black;
         overflow: hidden;
+        background-color: white;
         
         .new-label{
             @include new-label;
             margin: 0.75rem 1rem;
+            background-color: $bg-color-main;
         }
         
         .discount{
