@@ -1,8 +1,7 @@
 import React from "react";
 import CardItem from "../CardItem";
 import "./style.scss";
-import dataProducts from "../../utils/dataProducts";
-
+import { dataProducts } from "../../utils/data";
 const ProductsOverview = () => {
   return (
     <div className="products-overview">
