@@ -1,0 +1,40 @@
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/mixin.scss";
+
+.products-overview {
+  width: 100vw;
+  height: 100vh;
+  background-color: $bg-color-main;
+  color: $dark-blue;
+
+  .title-container {
+    height: 15vh;
+    text-align: center;
+    @include flex-direction-column;
+    @include flex-center-all;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-weight: 500;
+    }
+  }
+
+  .category-products {
+    height: 2rem;
+    width: 68.5rem;
+    margin: auto;
+    margin-top: 3rem;
+    font-weight: 600;
+    color: #2e2e22;
+    @include space-between;
+  }
+
+  .products-container {
+    @include flex-direction-row;
+    @include flex-center-all;
+  }
+}
