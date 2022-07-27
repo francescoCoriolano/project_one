@@ -1,7 +1,7 @@
-import itemImg1 from "../../assets/images/item1.png"
-import itemImg2 from "../../assets/images/item2.png"
-import itemImg3 from "../../assets/images/item3.png"
-import itemImg4 from "../../assets/images/item4.png"
+import itemImg1 from "../assets/images/item1.png"
+import itemImg2 from "../assets/images/item2.png"
+import itemImg3 from "../assets/images/item3.png"
+import itemImg4 from "../assets/images/item4.png"
 
 const dataProducts = [
     {

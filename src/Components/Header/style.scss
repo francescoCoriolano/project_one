@@ -1,59 +1,51 @@
-@import '../../assets/scss/variables.scss';
-@import '../../assets/scss/mixin.scss';
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/mixin.scss";
 
-.header{
-    width: 100vw;
-    height: 80vh;
-    background-color: $bg-color-main;
-    color: $text-color-main;;
-    @include flex-direction-row;
-    
+.header {
+  width: 100vw;
+  height: 80vh;
+  background-color: $bg-color-main;
+  color: $text-color-main;
+  @include flex-direction-row;
 
-    .header-text-container{
-        width: 50%;
-        height: 100%;
+  .header-text-container {
+    width: 50%;
+    height: 100%;
 
-        .text-wrapper{
-            margin-left: 8.75rem;
-            text-align: start;
+    .text-wrapper {
+      margin-left: 8.75rem;
+      text-align: start;
 
-            .new-label{
-                margin-top: 6.87rem;
-                @include new-label;
-                
-            }
+      .new-label {
+        margin-top: 6.87rem;
+        @include new-label;
+      }
 
-            .header-title{
-                font-size: $title-font;
-                padding:1rem 0;
-              
-            }
+      .header-title {
+        font-size: $title-font;
+        padding: 1rem 0;
+      }
 
-            .header-text{
-                line-height: 1.5rem;
-                
-            }
-            
-            .shop-btn{
-                margin-top: 1.75rem;
-                @include shop-btn;
-                &:hover{
-                    cursor: pointer;
-                }
-            }
+      .header-text {
+        line-height: 1.5rem;
+      }
+
+      .shop-btn {
+        margin-top: 1.75rem;
+        @include shop-btn;
+        &:hover {
+          cursor: pointer;
         }
+      }
     }
-    .header-img-container{
-        width: 50%;
-        height: 100%;
-        
-         img {
-            max-width: 100%;
-            max-height: 100%;
-        }
+  }
+  .header-img-container {
+    width: 50%;
+    height: 100%;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
     }
+  }
 }
-
-
-
-
