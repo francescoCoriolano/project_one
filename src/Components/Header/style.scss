@@ -2,8 +2,6 @@
 @import "../../assets/scss/mixin.scss";
 
 .header {
-  width: 100vw;
-  height: 80vh;
   background-color: $bg-color-main;
   color: $text-color-main;
   @include flex-direction-row;
@@ -15,6 +13,7 @@
     .text-wrapper {
       margin-left: 8.75rem;
       text-align: start;
+      margin-bottom: 232px;
 
       .new-label {
         margin-top: 6.87rem;
@@ -41,11 +40,12 @@
   }
   .header-img-container {
     width: 50%;
-    height: 100%;
+    min-height: 100%;
+    background-size: cover;
 
     img {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      min-height: 100%;
     }
   }
 }

@@ -54,6 +54,7 @@
 
   .nav-bottom {
     @include flex-center-all;
+    margin-top: 20px;
     height: 2rem;
     overflow-y: hidden;
 
