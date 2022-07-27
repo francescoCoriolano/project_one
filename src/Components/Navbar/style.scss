@@ -5,6 +5,7 @@
   height: 5rem;
   padding: 2.75rem 5.3rem;
   background-color: $bg-color-main;
+  overflow-y: hidden;
 
   .nav-item {
     letter-spacing: 0.6px;
@@ -54,6 +55,7 @@
   .nav-bottom {
     @include flex-center-all;
     height: 2rem;
+    overflow-y: hidden;
 
     ul {
       list-style: none;
