@@ -10,6 +10,8 @@
   .title-container {
     height: 15vh;
     text-align: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     @include flex-direction-column;
     @include flex-center-all;
 
@@ -31,6 +33,7 @@
     font-weight: 600;
     color: #2e2e22;
     @include space-between;
+    cursor: pointer;
   }
 
   .products-container {
