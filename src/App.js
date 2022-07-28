@@ -11,19 +11,17 @@ function App() {
   const root = ReactDOM.createRoot(document.getElementById("root"));
 
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
       <div className="App">
         <Navbar />
         <Header />
         <ProductsOverview />
         <ShopSection />
       </div>
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.scss";
-import headerImg from "../../assets/images/header-img2.png";
 
 const Header = () => {
   return (
