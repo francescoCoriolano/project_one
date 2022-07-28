@@ -1,23 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardItem from "../CardItem";
 import "./style.scss";
 import { dataProducts } from "../../utils/data";
 
 const ProductsOverview = () => {
+  const [productsData, setProductsData] = useState([]);
+
   const getProductsData = () => {
     axios
-      .get("https://fakestoreapi.com/products/categories")
+      .get("https://fakestoreapi.com/products")
       .then(function (response) {
-        console.log(response);
+        console.log(response.data);
+        setProductsData(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   };
+
   useEffect(() => {
     getProductsData();
   }, []);
+
+  localStorage.setItem("productsData", JSON.stringify(productsData));
+
+  const localStorageData = JSON.parse(localStorage.getItem("productsData"));
+
+  console.log(localStorageData, "local storage data ");
 
   return (
     <div className="products-overview">
