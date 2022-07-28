@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import flowerFace from "../../assets/images/flower-face.png";
+
 const ShopSection = () => {
   return (
     <div className="shop-section">
