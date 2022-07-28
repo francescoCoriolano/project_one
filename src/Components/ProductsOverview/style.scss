@@ -2,23 +2,19 @@
 @import "../../assets/scss/mixin.scss";
 
 .products-overview {
-  // width: 100vw;
-  // height: 100vh;
   background-color: $bg-color-main;
   color: $dark-blue;
 
   .title-container {
-    height: 141px;
     text-align: center;
-    border-bottom: 1px solid $pastel-green;
+    border-bottom: $pastel-green-border;
     border-top: 1px solid $pastel-green;
     @include flex-direction-column;
     @include flex-center-all;
 
     h2 {
       font-size: 28px;
-      margin-top: 43px;
-      margin-bottom: 6px;
+      padding: 43px 0 6px 0;
     }
 
     p {
