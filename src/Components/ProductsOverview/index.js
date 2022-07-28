@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import CardItem from "../CardItem";
 import "./style.scss";
 import { dataProducts } from "../../utils/data";
+
 const ProductsOverview = () => {
+  const getProductsData = () => {
+    axios
+      .get("https://fakestoreapi.com/products/categories")
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    getProductsData();
+  }, []);
+
   return (
     <div className="products-overview">
       <div className="title-container">
@@ -15,7 +31,7 @@ const ProductsOverview = () => {
       </div>
       <div className="products-container">
         {dataProducts.map((item) => {
-          return <CardItem {...item} />;
+          return <CardItem {...item} key={item.id} />;
         })}
       </div>
     </div>
