@@ -19,9 +19,7 @@ const Header = () => {
           <button className="shop-btn">Shop products</button>
         </div>
       </div>
-      <div className="header-img-container">
-        <img src={headerImg} alt="product-img" />
-      </div>
+      <div className="header-img-container"></div>
     </div>
   );
 };
