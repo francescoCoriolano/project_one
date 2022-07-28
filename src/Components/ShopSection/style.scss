@@ -1,0 +1,45 @@
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/mixin.scss";
+
+.shop-section {
+  @include flex-direction-row;
+  color: $white;
+
+  .text-container {
+    width: 50vw;
+    background-color: $pastel-green;
+    @include flex-center-all;
+
+    .text-wrapper {
+      margin-top: 221px;
+      margin-left: 4rem;
+      text-align: start;
+      margin-bottom: 215px;
+
+      .header-title {
+        font-size: 40px;
+        line-height: 3.5rem;
+      }
+      .header-text {
+        line-height: 1.5rem;
+        margin-top: 1rem;
+      }
+      .shop-btn {
+        margin-top: 3rem;
+        @include shop-btn;
+        background: none;
+        border: 1px solid $white;
+        color: $white;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .img-container {
+    width: 50vw;
+    background-size: cover;
+    background-image: url("../../assets/images/flower-face.png");
+  }
+}

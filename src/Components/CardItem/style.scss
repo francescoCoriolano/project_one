@@ -5,6 +5,7 @@
   width: 15.6rem;
   height: 30rem;
   margin: 1rem;
+  margin-bottom: 120px;
 
   .card-img {
     height: 21.6rem;
@@ -64,7 +65,8 @@
     .add-product-btn {
       width: 100%;
       height: 2.2rem;
-      border: 2px solid $dark-blue;
+      border: 1px solid $dark-blue;
+      background-color: $bg-color-main;
 
       &:hover {
         cursor: pointer;
