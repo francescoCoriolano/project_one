@@ -29,6 +29,12 @@ const ProductsOverview = () => {
 
   console.log(localStorageData, "local storage data ");
 
+  console.log(
+    productsData
+      .sort((a, b) => b.rating.rate - a.rating.rate)
+      .map((item) => item.rating.rate)
+      .splice(0, 4)
+  );
   return (
     <div className="products-overview">
       <div className="title-container">
