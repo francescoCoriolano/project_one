@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import ProductsOverview from "./components/ProductsOverview";
 import ShopSection from "./components/ShopSection";
+import RecomendedItems from "./components/RecomendedItems";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Navbar />
         <Header />
         <ProductsOverview />
+        <RecomendedItems />
         <ShopSection />
       </div>
     </BrowserRouter>

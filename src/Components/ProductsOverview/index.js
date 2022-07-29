@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardItem from "../CardItem";
 import "./style.scss";
-import { dataProducts } from "../../utils/data";
 
 const ProductsOverview = () => {
   const [productsData, setProductsData] = useState([]);
@@ -37,17 +36,9 @@ const ProductsOverview = () => {
     "filter RATE",
     productsData.sort((a, b) => b.rating.rate - a.rating.rate).splice(0, 4)
   );
-  const mostRated = productsData
+  const mostRated = localStorageData
     .sort((a, b) => b.rating.rate - a.rating.rate)
     .splice(0, 4);
-
-  // console.log(
-  //   "filter COUNT",
-  //   productsData
-  //     .sort((a, b) => b.rating.count - a.rating.conut)
-  //     .map((item) => item.rating.count)
-  //     .splice(0, 4)
-  // );
 
   return (
     <div className="products-overview">
@@ -59,11 +50,6 @@ const ProductsOverview = () => {
         <span className="popular-product">Most popular</span>
         <span className="all-products">Shop all products</span>
       </div>
-      {/* <div className="products-container">
-        {dataProducts.map((item) => {
-          return <CardItem {...item} key={item.id} />;
-        })}
-      </div> */}
       <div className="products-container">
         {mostRated.map((item) => {
           return (

@@ -1,0 +1,22 @@
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/mixin.scss";
+
+.recomended-items {
+  background-color: $bg-color-main;
+
+  .recomended-products {
+    height: 2rem;
+    width: 68.5rem;
+    margin: auto;
+    margin-top: 3rem;
+    font-weight: 600;
+    color: #2e2e22;
+    @include space-between;
+    cursor: pointer;
+  }
+  .products-container {
+    @include flex-direction-row;
+    @include flex-center-all;
+    flex-wrap: wrap;
+  }
+}
