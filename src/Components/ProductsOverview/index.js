@@ -54,6 +54,7 @@ const ProductsOverview = () => {
         {mostRated.map((item) => {
           return (
             <CardItem
+              category={item.category}
               name={item.title}
               image={item.image}
               description={item.description}

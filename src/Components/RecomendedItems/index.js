@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.scss";
 import CardItem from "../CardItem";
-import { dataProducts } from "../../utils/data";
 
 const RecomendedItems = () => {
   const localStorageData = JSON.parse(localStorage.getItem("productsData"));
@@ -9,6 +8,7 @@ const RecomendedItems = () => {
   const mostPopular = localStorageData
     .sort((a, b) => b.rating.rate - a.rating.rate)
     .splice(0, 8);
+
   return (
     <div className="recomended-items">
       <div className="recomended-products">
@@ -19,6 +19,7 @@ const RecomendedItems = () => {
         {mostPopular.map((item) => {
           return (
             <CardItem
+              category={item.category}
               name={item.title}
               image={item.image}
               description={item.description}

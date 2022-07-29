@@ -8,20 +8,14 @@ const CardItem = ({
   name,
   description,
   price,
-  label,
+  category,
   priceBeforeDiscount,
 }) => {
   return (
     <div>
       <div className="card-item">
         <div className="card-img">
-          {label && (
-            <div
-              className={`new-label ${priceBeforeDiscount ? "discount" : ""} `}
-            >
-              {label}
-            </div>
-          )}
+          {category === "jewelery" && <div className="new-label">New!</div>}
           <img src={image} alt="product-img" />
         </div>
         <div className="item-description-wrapper">
