@@ -31,7 +31,7 @@ const CardItem = ({
             <span
               className={`item-price ${priceBeforeDiscount ? "discount" : ""} `}
             >
-              {price}
+              ${price}
             </span>
             {priceBeforeDiscount && (
               <span className="item-price-reduced">{priceBeforeDiscount}</span>

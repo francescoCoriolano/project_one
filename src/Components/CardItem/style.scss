@@ -6,6 +6,7 @@
   height: 30rem;
   margin: 1rem;
   margin-bottom: 120px;
+  overflow-y: hidden;
 
   .card-img {
     height: 21.6rem;
@@ -31,15 +32,23 @@
   .item-description-wrapper {
     @include flex-direction-column;
     align-items: flex-start;
+    height: 8.4rem;
+    width: 100%;
 
     .item-name {
       margin-top: 0.87rem;
       font-size: 1rem;
+      width: 100%;
+      height: 2rem;
+      @include text-ellipsis;
     }
 
     .item-description {
       margin-top: 0.3rem;
       font-size: 0.87rem;
+      height: 1rem;
+      width: 100%;
+      @include text-ellipsis;
     }
 
     .price-wrapper {
