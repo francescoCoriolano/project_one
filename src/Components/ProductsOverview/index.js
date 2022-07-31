@@ -39,6 +39,7 @@ const ProductsOverview = () => {
   const mostRated = localStorageData
     .sort((a, b) => b.rating.rate - a.rating.rate)
     .splice(0, 4);
+  console.log(mostRated, "w");
 
   return (
     <div className="products-overview">
@@ -60,6 +61,7 @@ const ProductsOverview = () => {
               description={item.description}
               price={item.price}
               key={item.id}
+              mostRated={mostRated}
             />
           );
         })}
