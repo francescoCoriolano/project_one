@@ -17,8 +17,8 @@ function App() {
         <Navbar />
         <Header />
         <ProductsOverview />
-        <RecomendedItems />
         <ShopSection />
+        <RecomendedItems />
       </div>
     </BrowserRouter>
   );

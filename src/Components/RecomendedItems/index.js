@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.scss";
 import CardItem from "../CardItem";
 
 const RecomendedItems = () => {
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("productsData"));
+  }, []);
+
+  //REPETETIVE CODE...HOW CAN I CHANGE IT?
   const localStorageData = JSON.parse(localStorage.getItem("productsData"));
 
   const mostPopular = localStorageData
