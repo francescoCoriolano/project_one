@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardItem from "../CardItem";
 import "./style.scss";
+import { localStorageData } from "../../helpers/const";
 
 const ProductsOverview = () => {
   const [productsData, setProductsData] = useState([]);
 
-  //GET DATA FROM API
   const getProductsData = () => {
     axios
       .get("https://fakestoreapi.com/products")
       .then(function (response) {
-        console.log(response.data, "FIRST");
         setProductsData(response.data);
       })
       .catch(function (error) {
@@ -19,33 +18,16 @@ const ProductsOverview = () => {
       });
   };
 
-  //SHOW DATA ON PAGE LOAD
   useEffect(() => {
     getProductsData();
   }, []);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     getProductsData();
-  //   }, 5000);
-  //   return () => clearTimeout(timer);
-  // }, []);
-  //STORE API DATA TO LOCAL STORAGE
   localStorage.setItem("productsData", JSON.stringify(productsData));
-
   const localStorageData = JSON.parse(localStorage.getItem("productsData"));
 
-  console.log(localStorageData, "local storage data ");
-
-  //FILTER MOST RATED
-  console.log(
-    "filter RATE",
-    productsData.sort((a, b) => b.rating.rate - a.rating.rate).splice(0, 4)
-  );
   const mostRated = localStorageData
     .sort((a, b) => b.rating.rate - a.rating.rate)
     .splice(0, 4);
-  console.log(mostRated, "w");
 
   return (
     <div className="products-overview">

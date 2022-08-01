@@ -7,7 +7,7 @@ const RecomendedItems = () => {
     JSON.parse(localStorage.getItem("productsData"));
   }, []);
 
-  //REPETETIVE CODE...HOW CAN I CHANGE IT?
+  //REPETETIVE CODE...HOW CAN
   const localStorageData = JSON.parse(localStorage.getItem("productsData"));
 
   const mostPopular = localStorageData

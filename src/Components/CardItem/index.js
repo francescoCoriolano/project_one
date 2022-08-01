@@ -9,11 +9,9 @@ const CardItem = ({
   description,
   price,
   category,
-  priceBeforeDiscount,
   mostRated,
   index,
 }) => {
-  //APPLY 15% DISCOUNT
   const applyDiscount = (mostRated) => {
     for (let i = 0; i < mostRated.length; i++) {
       if (mostRated[i].title.includes("Women")) {
@@ -30,38 +28,31 @@ const CardItem = ({
     applyDiscount(mostRated);
   }, []);
 
+  const isWoman = mostRated[index].title.includes("Women");
+
+  console.log("mostrated", mostRated);
+
   return (
     <div>
       <div className="card-item">
         <div className="card-img">
           {category === "jewelery" && <div className="new-label">New!</div>}
-          {/* discount label */}
-          {mostRated[index].title.includes("Women") ? (
-            <div className=" new-label discount">15%</div>
-          ) : (
-            ""
-          )}
+          {isWoman ? <div className=" new-label discount">15%</div> : ""}
           <img src={image} alt="product-img" />
         </div>
         <div className="item-description-wrapper">
           <h3 className="item-name">{name}</h3>
           <p className="item-description">{description}</p>
           <div className="price-wrapper">
-            {/* price discounted if women */}
-            {mostRated[index].title.includes("Women") ? (
+            {isWoman ? (
               <span className="discount item-price">
                 ${applyDiscount(mostRated[index].price).toFixed(2)}
               </span>
             ) : (
               ""
             )}
-            {/* line through  price if woman */}
             <span
-              className={`item-price ${
-                mostRated[index].title.includes("Women")
-                  ? "item-price-reduced"
-                  : ""
-              } `}
+              className={`item-price ${isWoman ? "item-price-reduced" : ""} `}
             >
               ${price}
             </span>
