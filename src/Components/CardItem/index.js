@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
@@ -13,14 +13,15 @@ const CardItem = ({
   mostRated,
 }) => {
   const [discount, setDiscount] = useState(false);
-
+  const [discountedPrice, setDiscountedPrice] = useState();
   //APPLY 15% DISCOUNT
   const applyDiscount = (mostRated) => {
     for (let i = 0; i < mostRated.length; i++) {
       if (mostRated[i].title.includes("womam")) {
         setDiscount(true);
         const price = mostRated[i].price;
-        const discountedPrice = price - price * 0.15;
+        const newPrice = price - price * 0.15;
+        setDiscountedPrice(newPrice);
         //to be continued
       }
     }
@@ -31,21 +32,25 @@ const CardItem = ({
       <div className="card-item">
         <div className="card-img">
           {category === "jewelery" && <div className="new-label">New!</div>}
-          {/* check this */}
-          {discount && <div className="discount">15%</div>}
+          {/* check code below*/}
+          {discount && <div className=" new-label discount">15%</div>}
           <img src={image} alt="product-img" />
         </div>
         <div className="item-description-wrapper">
           <h3 className="item-name">{name}</h3>
           <p className="item-description">{description}</p>
+          {/* ////////////////// */}
           <div className="price-wrapper">
-            <span className={`item-price ${discount ? "discount" : ""} `}>
+            {discountedPrice && (
+              <span className="discount">{discountedPrice}</span>
+            )}
+            <span
+              className={`item-price ${discount ? "item-price-reduced" : ""} `}
+            >
               ${price}
             </span>
-            {priceBeforeDiscount && (
-              <span className="item-price-reduced">{priceBeforeDiscount}</span>
-            )}
           </div>
+          {/* ////////////////// */}
           <button className="add-product-btn">
             <FontAwesomeIcon icon={faCartShopping} />
             <span>Add to cart</span>
