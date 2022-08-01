@@ -24,6 +24,12 @@ const ProductsOverview = () => {
     getProductsData();
   }, []);
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     getProductsData();
+  //   }, 5000);
+  //   return () => clearTimeout(timer);
+  // }, []);
   //STORE API DATA TO LOCAL STORAGE
   localStorage.setItem("productsData", JSON.stringify(productsData));
 
@@ -52,7 +58,7 @@ const ProductsOverview = () => {
         <span className="all-products">Shop all products</span>
       </div>
       <div className="products-container">
-        {mostRated.map((item) => {
+        {mostRated.map((item, index) => {
           return (
             <CardItem
               category={item.category}
@@ -62,6 +68,7 @@ const ProductsOverview = () => {
               price={item.price}
               key={item.id}
               mostRated={mostRated}
+              index={index}
             />
           );
         })}
