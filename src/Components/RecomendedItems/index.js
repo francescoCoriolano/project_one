@@ -4,7 +4,7 @@ import CardItem from "../CardItem";
 
 const RecomendedItems = () => {
   useEffect(() => {
-    JSON.parse(localStorage.getItem("productsData"));
+    // JSON.parse(localStorage.getItem("productsData"));
   }, []);
 
   //REPETETIVE CODE...HOW CAN

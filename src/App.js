@@ -10,6 +10,24 @@ import ShopSection from "./components/ShopSection";
 import RecomendedItems from "./components/RecomendedItems";
 
 function App() {
+  const [productsData, setProductsData] = useState([]);
+
+  const getProductsData = () => {
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then(function (response) {
+        setProductsData(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getProductsData();
+    console.log("productsData", productsData);
+  }, []);
+  localStorage.setItem("productsData", JSON.stringify(productsData));
   return (
     <BrowserRouter>
       <Routes>
