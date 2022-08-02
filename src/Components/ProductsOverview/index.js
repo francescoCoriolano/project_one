@@ -1,52 +1,14 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import CardItem from "../CardItem";
 import "./style.scss";
 
 const ProductsOverview = () => {
-  // const [productsData, setProductsData] = useState([]);
+  const products = JSON.parse(localStorage.getItem("productsData"));
 
-  // const getProductsData = () => {
-  //   axios
-  //     .get("https://fakestoreapi.com/products")
-  //     .then(function (response) {
-  //       setProductsData(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   getProductsData();
-  // }, []);
-
-  // localStorage.setItem("productsData", JSON.stringify(productsData));
-  const localStorageData = JSON.parse(localStorage.getItem("productsData"));
-
-  const mostRated = localStorageData
+  const mostRated = products
     .sort((a, b) => b.rating.rate - a.rating.rate)
     .splice(0, 4);
 
-  // const applyDiscount = (mostRated) => {
-  //   for (let i = 0; i < mostRated.length; i++) {
-  //     if (mostRated[i].title.includes("Women")) {
-  //       const price = mostRated[i].price;
-
-  //       return price;
-  //     }
-  //   }
-  //   const newPrice = price - price * 0.15;
-  //   return newPrice;
-  // };
-  // // best way to resolve this warning?
-  // useEffect(() => {
-  //   applyDiscount(mostRated);
-  // }, []);
-
-  // const isWoman = mostRated[index].title.includes("Women");
-
-  console.log("mostrated", mostRated);
   return (
     <div className="products-overview">
       <div className="title-container">

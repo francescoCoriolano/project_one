@@ -1,16 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./style.scss";
 import CardItem from "../CardItem";
 
 const RecomendedItems = () => {
-  useEffect(() => {
-    // JSON.parse(localStorage.getItem("productsData"));
-  }, []);
+  const products = JSON.parse(localStorage.getItem("productsData"));
 
-  //REPETETIVE CODE...HOW CAN
-  const localStorageData = JSON.parse(localStorage.getItem("productsData"));
-
-  const mostPopular = localStorageData
+  const mostPopular = products
     .sort((a, b) => b.rating.rate - a.rating.rate)
     .splice(0, 8);
 

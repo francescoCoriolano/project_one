@@ -1,44 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-const CardItem = ({ image, name, description, price, category, index }) => {
-  const localStorageData = JSON.parse(localStorage.getItem("productsData"));
-
-  const mostRated = localStorageData
-    .sort((a, b) => b.rating.rate - a.rating.rate)
-    .splice(0, 4);
-
-  const applyDiscount = (mostRated) => {
-    for (let i = 0; i < mostRated.length; i++) {
-      if (mostRated[i].title.includes("Women")) {
-        const price = mostRated[i].price;
-
-        return price;
-      }
-    }
-
-    const newPrice = price - price * 0.15;
-    return { newPrice };
-  };
-
-  // best way to resolve this warning?
-  useEffect(() => {
-    applyDiscount(mostRated);
-  }, []);
-
-  // const isWoman = mostRated[index].title.includes("Women");
-
-  //this was not working here so I move it inside the applyDiscount function
-  // const isWoman = mostRated[index].title.includes("Women");
+const CardItem = ({ image, name, description, price, category }) => {
+  const newPrice = price - price * 0.15;
 
   return (
     <div>
       <div className="card-item">
         <div className="card-img">
           {category === "jewelery" && <div className="new-label">New!</div>}
-          {applyDiscount.isWoman ? (
+          {name.includes("Women") ? (
             <div className=" new-label discount">15%</div>
           ) : (
             ""
@@ -49,16 +22,17 @@ const CardItem = ({ image, name, description, price, category, index }) => {
           <h3 className="item-name">{name}</h3>
           <p className="item-description">{description}</p>
           <div className="price-wrapper">
-            {applyDiscount.isWoman ? (
+            {name.includes("Women") ? (
               <span className="discount item-price">
-                ${applyDiscount(mostRated[index].price).toFixed(2)}
+                ${newPrice.toFixed(2)}
               </span>
             ) : (
               ""
             )}
+
             <span
               className={`item-price ${
-                applyDiscount.isWoman ? "item-price-reduced" : ""
+                name.includes("Women") ? "item-price-reduced" : ""
               } `}
             >
               ${price}
