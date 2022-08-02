@@ -6,7 +6,7 @@ const ProductsOverview = () => {
   const products = JSON.parse(localStorage.getItem("productsData"));
 
   const mostRated = products
-    .sort((a, b) => b.rating.rate - a.rating.rate)
+    ?.sort((a, b) => b.rating.rate - a.rating.rate)
     .splice(0, 4);
 
   return (
@@ -20,7 +20,7 @@ const ProductsOverview = () => {
         <span className="all-products">Shop all products</span>
       </div>
       <div className="products-container">
-        {mostRated.map((item, index) => {
+        {mostRated?.map((item, index) => {
           return (
             <CardItem
               category={item.category}
@@ -29,7 +29,6 @@ const ProductsOverview = () => {
               description={item.description}
               price={item.price}
               key={item.id}
-              mostRated={mostRated}
               index={index}
             />
           );

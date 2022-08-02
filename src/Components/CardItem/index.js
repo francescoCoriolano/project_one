@@ -39,7 +39,7 @@ const CardItem = ({ image, name, description, price, category }) => {
             </span>
           </div>
 
-          <button className="add-product-btn">
+          <button className="add-product-btn" onClick={console.log("hello")}>
             <FontAwesomeIcon icon={faCartShopping} />
             <span>Add to cart</span>
           </button>
