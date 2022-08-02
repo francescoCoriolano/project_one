@@ -23,12 +23,10 @@ const ProductsOverview = () => {
 
   // localStorage.setItem("productsData", JSON.stringify(productsData));
   const localStorageData = JSON.parse(localStorage.getItem("productsData"));
-  console.log("lcd", localStorageData);
 
   const mostRated = localStorageData
     .sort((a, b) => b.rating.rate - a.rating.rate)
     .splice(0, 4);
-  console.log("mr", mostRated);
 
   // const applyDiscount = (mostRated) => {
   //   for (let i = 0; i < mostRated.length; i++) {

@@ -24,9 +24,12 @@ function App() {
   };
 
   useEffect(() => {
-    getProductsData();
-    console.log("productsData", productsData);
+    const timer = setTimeout(() => {
+      getProductsData();
+    }, 5000);
+    return () => clearTimeout(timer);
   }, []);
+
   localStorage.setItem("productsData", JSON.stringify(productsData));
   return (
     <BrowserRouter>
