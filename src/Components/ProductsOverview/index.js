@@ -2,7 +2,7 @@ import React from "react";
 import CardItem from "../CardItem";
 import "./style.scss";
 
-const ProductsOverview = () => {
+const ProductsOverview = ({ addItemToCart }) => {
   const products = JSON.parse(localStorage.getItem("productsData"));
 
   const mostRated = products
@@ -29,6 +29,8 @@ const ProductsOverview = () => {
               description={item.description}
               price={item.price}
               key={item.id}
+              id={item.id}
+              addItemToCart={addItemToCart}
             />
           );
         })}

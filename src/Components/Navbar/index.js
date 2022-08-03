@@ -3,7 +3,7 @@ import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   return (
     <nav className="navbar">
       <div className="nav-top">
@@ -26,6 +26,12 @@ const Navbar = () => {
             <li className="nav-item">
               <a href="cart">Cart</a>
             </li>
+            {cart.length !== 0 && (
+              <li className="nav-item">
+                <a href="cart-item">({cart.length})</a>
+              </li>
+            )}
+
             <li className="nav-item">
               <a href="login">Login</a>
             </li>

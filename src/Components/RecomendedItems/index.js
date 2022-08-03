@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import CardItem from "../CardItem";
 
-const RecomendedItems = () => {
+const RecomendedItems = ({ addItemToCart }) => {
   const products = JSON.parse(localStorage.getItem("productsData"));
 
   const mostPopular = products
@@ -25,6 +25,8 @@ const RecomendedItems = () => {
               description={item.description}
               price={item.price}
               key={item.id}
+              id={item.id}
+              addItemToCart={addItemToCart}
             />
           );
         })}

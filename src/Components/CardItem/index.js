@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-const CardItem = ({ image, name, description, price, category }) => {
+const CardItem = ({
+  image,
+  name,
+  description,
+  price,
+  category,
+  id,
+  addItemToCart,
+}) => {
   const newPrice = price - price * 0.15;
 
   return (
@@ -39,7 +47,7 @@ const CardItem = ({ image, name, description, price, category }) => {
             </span>
           </div>
 
-          <button className="add-product-btn" onClick={console.log("hello")}>
+          <button className="add-product-btn" onClick={() => addItemToCart(id)}>
             <FontAwesomeIcon icon={faCartShopping} />
             <span>Add to cart</span>
           </button>

@@ -5,8 +5,8 @@ import Header from "../Header";
 import ProductsOverview from "../ProductsOverview";
 import ShopSection from "../ShopSection";
 import RecomendedItems from "../RecomendedItems";
-
-const LandingPage = () => {
+import Cart from "../Cart";
+const LandingPage = ({ addItemToCart, cart }) => {
   const [productsData, setProductsData] = useState([]);
 
   const getProductsData = () => {
@@ -31,9 +31,10 @@ const LandingPage = () => {
   return (
     <div>
       <Header />
-      <ProductsOverview />
+      <ProductsOverview addItemToCart={addItemToCart} />
       <ShopSection />
-      <RecomendedItems />
+      <RecomendedItems addItemToCart={addItemToCart} />
+      <Cart cart={cart} />
     </div>
   );
 };
