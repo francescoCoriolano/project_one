@@ -1,0 +1,25 @@
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/mixin.scss";
+
+.recomended-items {
+  background-color: $bg-color-main;
+  overflow-x: hidden;
+
+  .recomended-products {
+    height: 2rem;
+    width: 68rem;
+    margin: auto;
+    margin-top: 3rem;
+    font-weight: 600;
+    color: #2e2e22;
+    @include space-between;
+    cursor: pointer;
+  }
+  .products-container {
+    @include flex-direction-row;
+    @include flex-center-all;
+    flex-wrap: wrap;
+    max-width: 77rem;
+    margin: auto;
+  }
+}

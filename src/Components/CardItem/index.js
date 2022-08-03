@@ -3,24 +3,18 @@ import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-const CardItem = ({
-  image,
-  name,
-  description,
-  price,
-  label,
-  priceBeforeDiscount,
-}) => {
+const CardItem = ({ image, name, description, price, category }) => {
+  const newPrice = price - price * 0.15;
+
   return (
     <div>
       <div className="card-item">
         <div className="card-img">
-          {label && (
-            <div
-              className={`new-label ${priceBeforeDiscount ? "discount" : ""} `}
-            >
-              {label}
-            </div>
+          {category === "jewelery" && <div className="new-label">New!</div>}
+          {name.includes("Women") ? (
+            <div className=" new-label discount">15%</div>
+          ) : (
+            ""
           )}
           <img src={image} alt="product-img" />
         </div>
@@ -28,15 +22,23 @@ const CardItem = ({
           <h3 className="item-name">{name}</h3>
           <p className="item-description">{description}</p>
           <div className="price-wrapper">
-            <span
-              className={`item-price ${priceBeforeDiscount ? "discount" : ""} `}
-            >
-              {price}
-            </span>
-            {priceBeforeDiscount && (
-              <span className="item-price-reduced">{priceBeforeDiscount}</span>
+            {name.includes("Women") ? (
+              <span className="discount item-price">
+                ${newPrice.toFixed(2)}
+              </span>
+            ) : (
+              ""
             )}
+
+            <span
+              className={`item-price ${
+                name.includes("Women") ? "item-price-reduced" : ""
+              } `}
+            >
+              ${price}
+            </span>
           </div>
+
           <button className="add-product-btn">
             <FontAwesomeIcon icon={faCartShopping} />
             <span>Add to cart</span>

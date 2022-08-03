@@ -1,26 +1,22 @@
 import React from "react";
-import CardItem from "../CardItem";
 import "./style.scss";
+import CardItem from "../CardItem";
 
-const ProductsOverview = () => {
+const RecomendedItems = () => {
   const products = JSON.parse(localStorage.getItem("productsData"));
 
-  const mostRated = products
+  const mostPopular = products
     ?.sort((a, b) => b.rating.rate - a.rating.rate)
-    .splice(0, 4);
+    .splice(0, 8);
 
   return (
-    <div className="products-overview">
-      <div className="title-container">
-        <h2 className="products-title"> Solutions for all skin</h2>
-        <p className="title-text">Explore our innovative skincare products</p>
-      </div>
-      <div className="category-products">
-        <span className="popular-product">Most popular</span>
+    <div className="recomended-items">
+      <div className="recomended-products">
+        <span className="top-product">Top-rated</span>
         <span className="all-products">Shop all products</span>
       </div>
       <div className="products-container">
-        {mostRated?.map((item) => {
+        {mostPopular?.map((item) => {
           return (
             <CardItem
               category={item.category}
@@ -37,4 +33,4 @@ const ProductsOverview = () => {
   );
 };
 
-export default ProductsOverview;
+export default RecomendedItems;
