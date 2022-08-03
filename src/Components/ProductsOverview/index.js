@@ -20,7 +20,7 @@ const ProductsOverview = () => {
         <span className="all-products">Shop all products</span>
       </div>
       <div className="products-container">
-        {mostRated?.map((item, index) => {
+        {mostRated?.map((item) => {
           return (
             <CardItem
               category={item.category}
@@ -29,7 +29,6 @@ const ProductsOverview = () => {
               description={item.description}
               price={item.price}
               key={item.id}
-              index={index}
             />
           );
         })}
