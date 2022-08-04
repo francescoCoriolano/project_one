@@ -1,9 +1,10 @@
 import React from "react";
-import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import "./style.scss";
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
+  console.log("navbar", cart);
   return (
     <nav className="navbar">
       <div className="nav-top">
@@ -24,8 +25,14 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faSearch} />
             </li>
             <li className="nav-item">
-              <a href="cart">Cart</a>
+              <a href="cart">
+                Cart
+                {cart.length !== 0 && (
+                  <span href="cart-item">({cart?.length})</span>
+                )}
+              </a>
             </li>
+
             <li className="nav-item">
               <a href="login">Login</a>
             </li>

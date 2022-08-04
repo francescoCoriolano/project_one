@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./style.scss";
 import Header from "../Header";
 import ProductsOverview from "../ProductsOverview";
 import ShopSection from "../ShopSection";
 import RecomendedItems from "../RecomendedItems";
+import "./style.scss";
 
-const LandingPage = () => {
+const LandingPage = ({ addItemToCart }) => {
   const [productsData, setProductsData] = useState([]);
 
   const getProductsData = () => {
@@ -31,9 +31,9 @@ const LandingPage = () => {
   return (
     <div>
       <Header />
-      <ProductsOverview />
+      <ProductsOverview addItemToCart={addItemToCart} />
       <ShopSection />
-      <RecomendedItems />
+      <RecomendedItems addItemToCart={addItemToCart} />
     </div>
   );
 };

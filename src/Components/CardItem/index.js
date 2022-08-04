@@ -3,26 +3,31 @@ import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-const CardItem = ({ image, name, description, price, category }) => {
+const CardItem = ({
+  image,
+  name,
+  description,
+  price,
+  category,
+  id,
+  addItemToCart,
+}) => {
   const newPrice = price - price * 0.15;
+  const isWoman = name.includes("Women");
 
   return (
     <div>
       <div className="card-item">
         <div className="card-img">
           {category === "jewelery" && <div className="new-label">New!</div>}
-          {name.includes("Women") ? (
-            <div className=" new-label discount">15%</div>
-          ) : (
-            ""
-          )}
+          {isWoman ? <div className=" new-label discount">15%</div> : ""}
           <img src={image} alt="product-img" />
         </div>
         <div className="item-description-wrapper">
           <h3 className="item-name">{name}</h3>
           <p className="item-description">{description}</p>
           <div className="price-wrapper">
-            {name.includes("Women") ? (
+            {isWoman ? (
               <span className="discount item-price">
                 ${newPrice.toFixed(2)}
               </span>
@@ -31,15 +36,13 @@ const CardItem = ({ image, name, description, price, category }) => {
             )}
 
             <span
-              className={`item-price ${
-                name.includes("Women") ? "item-price-reduced" : ""
-              } `}
+              className={`item-price ${isWoman ? "item-price-reduced" : ""} `}
             >
               ${price}
             </span>
           </div>
 
-          <button className="add-product-btn">
+          <button className="add-product-btn" onClick={() => addItemToCart(id)}>
             <FontAwesomeIcon icon={faCartShopping} />
             <span>Add to cart</span>
           </button>
