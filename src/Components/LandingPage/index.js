@@ -1,29 +1,11 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import Header from "../Header";
 import ProductsOverview from "../ProductsOverview";
 import ShopSection from "../ShopSection";
 import RecomendedItems from "../RecomendedItems";
 import "./style.scss";
 
-const LandingPage = ({ addItemToCart }) => {
-  const [productsData, setProductsData] = useState([]);
-
-  const getProductsData = () => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then(function (response) {
-        setProductsData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    getProductsData();
-  }, []);
-
+const LandingPage = ({ addItemToCart, productsData }) => {
   useEffect(() => {
     localStorage.setItem("productsData", JSON.stringify(productsData));
   }, [productsData]);

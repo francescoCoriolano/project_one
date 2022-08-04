@@ -1,11 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import "./App.scss";
 
 function App() {
+  const [productsData, setProductsData] = useState([]);
+
+  const getProductsData = () => {
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then(function (response) {
+        setProductsData(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getProductsData();
+  }, []);
   const [cart, setCart] = useState([]);
 
   const addItemToCart = (id) => {
@@ -27,8 +44,12 @@ function App() {
         <Route path="/login" element={<Login />} />
       </Routes>
       <div className="App">
-        <Navbar cart={cart} />
-        <LandingPage addItemToCart={addItemToCart} cart={cart} />
+        <Navbar cart={cart} productsData={productsData} />
+        <LandingPage
+          productsData={productsData}
+          addItemToCart={addItemToCart}
+          cart={cart}
+        />
       </div>
     </BrowserRouter>
   );

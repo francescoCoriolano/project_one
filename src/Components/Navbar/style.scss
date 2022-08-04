@@ -5,7 +5,7 @@
   height: 5rem;
   padding: 2.75rem 5.3rem;
   background-color: $bg-color-main;
-  overflow-y: hidden;
+  // overflow-y: hidden;
 
   .nav-item {
     letter-spacing: 0.6px;
@@ -63,6 +63,25 @@
 
       .hide {
         display: none;
+      }
+      .search-wrapper {
+        @include flex-direction-column;
+        .list-item {
+          z-index: 1;
+          @include flex-center;
+          padding: 5px;
+          width: 300px;
+          background-color: rgba(0, 0, 0, 0.407);
+          color: $white;
+          border-bottom: 1px solid black;
+        }
+        .name-searchBar {
+          padding: 5px;
+        }
+        .img-searchBar {
+          width: 50px;
+          height: 60px;
+        }
       }
     }
 
