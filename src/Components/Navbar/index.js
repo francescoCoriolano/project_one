@@ -8,7 +8,6 @@ const Navbar = ({ cart, productsData }) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [matchingItems, setMatchingItems] = useState([]);
   const [input, setInput] = useState("");
-  console.log("input", input);
 
   useEffect(() => {
     const getItemSuggestions = (input) => {
@@ -18,7 +17,7 @@ const Navbar = ({ cart, productsData }) => {
       setMatchingItems(matches);
     };
     getItemSuggestions(input);
-  }, [input, setMatchingItems]);
+  }, [input, productsData, setMatchingItems]);
 
   const triggerSearchBar = () => {
     setShowSearchBar(!showSearchBar);
@@ -63,7 +62,7 @@ const Navbar = ({ cart, productsData }) => {
                 ))}
             </li>
             <li className="nav-item">
-              <a className="search-btn" href="#">
+              <a className="search-btn" href="#a">
                 <FontAwesomeIcon
                   icon={faSearch}
                   onClick={() => triggerSearchBar()}

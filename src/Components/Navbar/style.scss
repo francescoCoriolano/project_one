@@ -35,7 +35,7 @@
     .nav-top-right {
       @include flex-end;
       width: 40%;
-
+      position: relative;
       li {
         padding: 0.9rem 0 0.9rem 1.4rem;
         text-transform: uppercase;
@@ -65,16 +65,22 @@
       }
       .search-wrapper {
         @include flex-direction-column;
+        position: absolute;
+        z-index: 1;
+        top: 10%;
+        right: 35%;
+
         .list-item {
           z-index: 1;
           @include flex-center;
           padding: 5px;
           width: 300px;
-          background-color: rgba(0, 0, 0, 0.407);
-          color: $white;
+          max-height: 10rem;
+          background-color: $primary-text-color;
+          color: white;
           border-bottom: 1px solid black;
           &:hover {
-            background-color: rgba(0, 0, 0, 0.615);
+            background-color: #233339;
           }
         }
         .name-searchBar {
