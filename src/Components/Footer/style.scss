@@ -1,0 +1,54 @@
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/mixin.scss";
+
+.footer {
+  .join-wrapper {
+    width: 100%;
+    height: 148px;
+    @include flex-direction-row;
+    @include flex-center;
+    @include space-around;
+
+    h2 {
+    }
+    p {
+    }
+  }
+  input {
+    width: 300px;
+    height: 40px;
+  }
+  button {
+    width: 100px;
+    height: 43px;
+    background-color: #956a53;
+    color: $white;
+    font-weight: 700;
+  }
+  .footer-main {
+    width: 100%;
+    height: 700px;
+    background-color: $dark-blue;
+    color: $white;
+    padding: 200px 140px;
+    .footer-main-wrapper {
+      background-color: rgba(0, 128, 0, 0.34);
+
+      width: 80%;
+      height: 270px;
+      .footer-main-top {
+        display: flex;
+        .left {
+          width: 50%;
+          background-color: rgba(0, 255, 255, 0.641);
+        }
+        .right {
+          width: 50%;
+          background-color: rgba(240, 255, 255, 0.415);
+          display: flex;
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+}
