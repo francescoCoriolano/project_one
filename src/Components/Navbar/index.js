@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import SearchBarItem from "../SearchBarItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
@@ -13,28 +12,17 @@ const Navbar = ({ cart, productsData }) => {
 
   useEffect(() => {
     const getItemSuggestions = (input) => {
-      let matches = [];
-      if (input !== "") {
-        for (let i = 0; i < productsData.length; i++) {
-          if (
-            productsData[i].title.toLowerCase().startsWith(input.toLowerCase())
-          ) {
-            matches.push({
-              title: productsData[i].title,
-              image: productsData[i].image,
-            });
-            setMatchingItems(matches);
-            console.log("matchingItems", matches);
-          }
-        }
-      }
-      return matches;
+      let matches = productsData.filter((item) =>
+        item.title.toLowerCase().startsWith(input.toLowerCase())
+      );
+      setMatchingItems(matches);
     };
     getItemSuggestions(input);
   }, [input, setMatchingItems]);
 
   const triggerSearchBar = () => {
     setShowSearchBar(!showSearchBar);
+    setInput("");
   };
 
   return (
@@ -53,8 +41,6 @@ const Navbar = ({ cart, productsData }) => {
             <li className="nav-item">sooth</li>
           </div>
           <div className="nav-top-right">
-            {/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
-
             <li className="nav-item search-wrapper">
               <input
                 className={`search-txt ${showSearchBar ? "open" : ""} `}
@@ -66,7 +52,7 @@ const Navbar = ({ cart, productsData }) => {
               />
               {input !== "" &&
                 matchingItems.map((item) => (
-                  <div className="list-item">
+                  <div className="list-item" key={item.title}>
                     <img
                       src={item.image}
                       alt="item-img"
@@ -75,9 +61,6 @@ const Navbar = ({ cart, productsData }) => {
                     <div className="name-searchBar">{item.title}</div>
                   </div>
                 ))}
-              {/* {matchingItems.map((item) => (
-                <SearchBarItem name={item.title} image={item.image} />
-              ))} */}
             </li>
             <li className="nav-item">
               <a className="search-btn" href="#">
@@ -93,7 +76,6 @@ const Navbar = ({ cart, productsData }) => {
                 />
               </a>
             </li>
-            {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
             <li className="nav-item ">
               <a href="cart">
                 Cart

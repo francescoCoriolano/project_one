@@ -5,7 +5,6 @@
   height: 5rem;
   padding: 2.75rem 5.3rem;
   background-color: $bg-color-main;
-  // overflow-y: hidden;
 
   .nav-item {
     letter-spacing: 0.6px;
@@ -74,6 +73,9 @@
           background-color: rgba(0, 0, 0, 0.407);
           color: $white;
           border-bottom: 1px solid black;
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.615);
+          }
         }
         .name-searchBar {
           padding: 5px;
@@ -99,6 +101,7 @@
     margin-top: 20px;
     height: 2rem;
     overflow-y: hidden;
+    z-index: -1;
 
     ul {
       list-style: none;

@@ -8,6 +8,7 @@ import "./App.scss";
 
 function App() {
   const [productsData, setProductsData] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const getProductsData = () => {
     axios
@@ -23,7 +24,6 @@ function App() {
   useEffect(() => {
     getProductsData();
   }, []);
-  const [cart, setCart] = useState([]);
 
   const addItemToCart = (id) => {
     setCart([...cart, id]);
