@@ -12,41 +12,126 @@
     h2 {
     }
     p {
+      text-align: left;
     }
   }
   input {
     width: 300px;
     height: 40px;
   }
-  button {
+  .btn-subscribe {
     width: 100px;
-    height: 43px;
+    height: 45px;
     background-color: #956a53;
     color: $white;
     font-weight: 700;
+    border: none;
   }
   .footer-main {
     width: 100%;
-    height: 700px;
+    // height: 700px;
     background-color: $dark-blue;
     color: $white;
     padding: 200px 140px;
     .footer-main-wrapper {
-      background-color: rgba(0, 128, 0, 0.34);
-
       width: 80%;
       height: 270px;
       .footer-main-top {
         display: flex;
+        border-bottom: 1px solid white;
         .left {
           width: 50%;
-          background-color: rgba(0, 255, 255, 0.641);
+
+          h2 {
+            text-align: left;
+            font-size: 54px;
+            font-weight: 400;
+          }
+          p {
+            text-align: left;
+            padding: 1rem 0 2rem 0;
+          }
+          form {
+            padding: 1rem 0;
+            text-align: left;
+            margin-bottom: 100px;
+            input {
+              background-color: transparent;
+              border: 1px solid white;
+            }
+            ::placeholder {
+              color: white;
+            }
+            button {
+              background-color: transparent;
+              border: 1px solid white;
+              width: 100px;
+              height: 42px;
+              color: white;
+            }
+          }
         }
         .right {
           width: 50%;
-          background-color: rgba(240, 255, 255, 0.415);
           display: flex;
           justify-content: space-around;
+
+          ul {
+            list-style-type: none;
+
+            h3 {
+              text-transform: uppercase;
+              font-weight: 400;
+              font-size: 16px;
+              text-align: left;
+              margin: 30px 0 22px 0;
+            }
+            li {
+              line-height: 30px;
+              text-align: left;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .footer-main-bottom {
+        h3 {
+          text-align: left;
+          text-transform: uppercase;
+          font-weight: 400;
+          margin: 40px 0 22px 0;
+        }
+        .links-wrapper {
+          width: 100%;
+          height: 4rem;
+          @include flex-direction-row;
+          justify-content: space-between;
+        }
+        .links {
+          text-align: left;
+          span {
+            text-decoration: underline;
+            margin-right: 4rem;
+          }
+        }
+        .footer__social__icons {
+          height: 2rem;
+          width: 16rem;
+
+          @include flex-direction-row;
+          @include flex-end;
+
+          ul {
+            list-style-type: none;
+            @include flex-direction-row;
+            justify-content: space-between;
+
+            li {
+              margin-left: 1.5rem;
+              text-align: right;
+              font-size: 1.5rem;
+            }
+          }
         }
       }
     }
