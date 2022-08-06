@@ -9,8 +9,8 @@ const Footer = () => {
           Join the <br></br>Sooth family
         </h2>
         <p>
-          LoremasdsdsdsadsLoasdsdsdsaLo<br></br>
-          Loremasdsdsdsadsrem
+          Lorem ipsum dolor sit amet, consetetur <br></br>
+          sadipscing elitr, sed diam nonumy
         </p>
         <form>
           <input type="email" />
@@ -26,7 +26,7 @@ const Footer = () => {
               <h2>sooth</h2>
               <p>Explore our innovative skincare products</p>
               <form>
-                <input type="email" placeholder="Your email..." />
+                <input type="email" placeholder="      Your email..." />
                 <button type="submit">Subscribe</button>
               </form>
             </div>
