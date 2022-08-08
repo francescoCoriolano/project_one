@@ -91,6 +91,10 @@
           height: 60px;
         }
       }
+      input:focus,
+      textarea {
+        outline: none !important;
+      }
     }
 
     .nav-item-center li {
