@@ -4,7 +4,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 
 const Navbar = ({ cart }) => {
-  console.log("navbar", cart);
   return (
     <nav className="navbar">
       <div className="nav-top">
@@ -28,7 +27,7 @@ const Navbar = ({ cart }) => {
               <a href="cart">
                 Cart
                 {cart.length !== 0 && (
-                  <span href="cart-item">({cart?.length})</span>
+                  <span href="cart-item">({cart?.length || cart})</span>
                 )}
               </a>
             </li>

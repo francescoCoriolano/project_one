@@ -85,10 +85,8 @@
             list-style-type: none;
 
             h3 {
-              text-transform: uppercase;
-              font-weight: 400;
+              @include text-left-uppercase-400;
               font-size: 16px;
-              text-align: left;
               margin: 30px 0 22px 0;
             }
 
@@ -102,9 +100,7 @@
       }
       .footer-main-bottom {
         h3 {
-          text-align: left;
-          text-transform: uppercase;
-          font-weight: 400;
+          @include text-left-uppercase-400;
           margin: 40px 0 22px 0;
         }
         .links-wrapper {

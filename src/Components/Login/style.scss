@@ -8,7 +8,7 @@
   background-color: $bg-color-main;
   .login-wrapper {
     @include flex-direction-column;
-    margin-top: -150px;
+    margin-top: -400px;
     h2 {
       text-align: center;
       padding: 3rem;
@@ -21,6 +21,9 @@
       width: 348px;
       height: 47px;
       margin-bottom: 10px;
+    }
+    ::placeholder {
+      padding-left: 1rem;
     }
     button {
       width: 350px;

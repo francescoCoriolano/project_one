@@ -25,7 +25,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login cart={cart} />} />
       </Routes>
       <div className="App">
         <Navbar cart={cart} />
