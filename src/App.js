@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import "./App.scss";
+import Footer from "./components/Footer";
 
 function App() {
   const [productsData, setProductsData] = useState([]);
@@ -40,16 +41,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-      </Routes>
       <div className="App">
         <Navbar cart={cart} productsData={productsData} />
+        <Routes>
+          <Route path="/login" element={<Login cart={cart} />} />
+        </Routes>
         <LandingPage
-          productsData={productsData}
           addItemToCart={addItemToCart}
           cart={cart}
+          productsData={productsData}
         />
+        <Footer />
       </div>
     </BrowserRouter>
   );

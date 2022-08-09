@@ -66,3 +66,9 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
+@mixin text-left-uppercase-400 {
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 400;
+}

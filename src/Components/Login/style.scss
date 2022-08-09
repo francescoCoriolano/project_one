@@ -1,4 +1,47 @@
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/mixin.scss";
 .login-page {
-  width: 1000px;
-  height: 1000px;
+  width: 100%;
+  height: 100vh;
+  @include flex-center-all;
+  margin: 1px solid black;
+  background-color: $bg-color-main;
+  .login-wrapper {
+    @include flex-direction-column;
+    margin-top: -400px;
+    h2 {
+      text-align: center;
+      padding: 3rem;
+      text-transform: uppercase;
+      color: $dark-blue;
+      font-size: 1.5rem;
+    }
+    input {
+      display: block;
+      width: 348px;
+      height: 47px;
+      margin-bottom: 10px;
+    }
+    ::placeholder {
+      padding-left: 1rem;
+    }
+    button {
+      width: 350px;
+      height: 47px;
+      margin-top: 1rem;
+      margin-bottom: 10px;
+      background-color: $dark-blue;
+      color: $white;
+      font-weight: 800;
+      cursor: pointer;
+    }
+  }
+  span {
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  p {
+    font-size: 14px;
+  }
 }

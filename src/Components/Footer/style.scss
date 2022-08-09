@@ -1,0 +1,142 @@
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/mixin.scss";
+
+.footer {
+  .join-wrapper {
+    width: 100%;
+    height: 148px;
+    @include flex-direction-row;
+    @include flex-center;
+    @include space-around;
+
+    p {
+      text-align: left;
+    }
+  }
+  input {
+    width: 300px;
+    height: 40px;
+  }
+  .btn-subscribe {
+    width: 100px;
+    height: 45px;
+    background-color: $light-brown-btn;
+    color: $white;
+    font-weight: 700;
+    border: none;
+  }
+  .footer-main {
+    width: 100%;
+    background-color: $dark-blue;
+    color: $white;
+    padding: 180px 140px;
+
+    .footer-main-wrapper {
+      width: 80%;
+      height: 320px;
+
+      .footer-main-top {
+        @include flex-direction-row;
+        border-bottom: $white-border;
+
+        .left {
+          width: 50%;
+
+          h2 {
+            text-align: left;
+            font-size: 54px;
+            font-weight: 400;
+          }
+          p {
+            text-align: left;
+            padding: 1rem 0 2rem 0;
+          }
+
+          form {
+            padding: 1rem 0;
+            text-align: left;
+            margin-bottom: 100px;
+
+            input {
+              background-color: transparent;
+              border: $white-border;
+            }
+            ::placeholder {
+              color: $white;
+              margin-left: 1rem;
+            }
+
+            button {
+              background-color: transparent;
+              border: $white-border;
+              width: 100px;
+              height: 42px;
+              color: $white;
+              cursor: pointer;
+            }
+          }
+        }
+        .right {
+          width: 50%;
+          @include flex-direction-row;
+          @include space-around;
+
+          ul {
+            list-style-type: none;
+
+            h3 {
+              @include text-left-uppercase-400;
+              font-size: 16px;
+              margin: 30px 0 22px 0;
+            }
+
+            li {
+              line-height: 30px;
+              text-align: left;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .footer-main-bottom {
+        h3 {
+          @include text-left-uppercase-400;
+          margin: 40px 0 22px 0;
+        }
+        .links-wrapper {
+          width: 100%;
+          height: 4rem;
+          @include flex-direction-row;
+          @include space-between;
+        }
+        .links {
+          text-align: left;
+          span {
+            text-decoration: underline;
+            margin-right: 6rem;
+            cursor: pointer;
+          }
+        }
+        .footer__social__icons {
+          height: 2rem;
+          width: 16rem;
+          @include flex-direction-row;
+          @include flex-end;
+
+          ul {
+            list-style-type: none;
+            @include flex-direction-row;
+            @include space-between;
+
+            li {
+              margin-left: 1.5rem;
+              text-align: right;
+              font-size: 1.5rem;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
