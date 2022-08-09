@@ -1,35 +1,27 @@
 import React from "react";
 import "./style.scss";
-import Navbar from "../Navbar/index";
-const Login = ({ cart }) => {
+
+const Login = () => {
   return (
-    <>
-      <Navbar cart={cart} />
-      <div className="login-page">
-        <div className="login-wrapper">
-          <h2>Login</h2>
-          <form className="login-form">
-            <input
-              type="email"
-              placeholder="Email Address"
-              id="email"
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              id="password"
-              required
-            />
-            <button className="btn-login">Continue</button>
-          </form>
-          <span>Forgot your password?</span>
-          <p>
-            Don't have an account?<span>Register now</span>
-          </p>
-        </div>
+    <div className="login-page">
+      <div className="login-wrapper">
+        <h2>Login</h2>
+        <form className="login-form">
+          <input type="email" placeholder="Email Address" id="email" required />
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            required
+          />
+          <button className="btn-login">Continue</button>
+        </form>
+        <span>Forgot your password?</span>
+        <p>
+          Don't have an account?<span>Register now</span>
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 

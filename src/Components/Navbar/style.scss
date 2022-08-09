@@ -5,7 +5,6 @@
   height: 5rem;
   padding: 2.75rem 5.3rem;
   background-color: $bg-color-main;
-  overflow-y: hidden;
 
   .nav-item {
     letter-spacing: 0.6px;
@@ -36,10 +35,65 @@
     .nav-top-right {
       @include flex-end;
       width: 40%;
-
+      position: relative;
       li {
         padding: 0.9rem 0 0.9rem 1.4rem;
         text-transform: uppercase;
+      }
+      .search-txt {
+        border: none;
+        background: none;
+        float: left;
+        padding: 0;
+        font-size: 16px;
+        transition: 0.4s;
+        line-height: 40px;
+        width: 0px;
+      }
+
+      .open {
+        width: 300px;
+        padding: 0 6px;
+      }
+
+      .display {
+        display: block;
+      }
+
+      .hide {
+        display: none;
+      }
+      .search-wrapper {
+        @include flex-direction-column;
+        position: absolute;
+        z-index: 1;
+        top: 10%;
+        right: 35%;
+
+        .list-item {
+          z-index: 1;
+          @include flex-center;
+          padding: 5px;
+          width: 300px;
+          max-height: 10rem;
+          background-color: $primary-text-color;
+          color: white;
+          border-bottom: 1px solid black;
+          &:hover {
+            background-color: #233339;
+          }
+        }
+        .name-searchBar {
+          padding: 5px;
+        }
+        .img-searchBar {
+          width: 50px;
+          height: 60px;
+        }
+      }
+      input:focus,
+      textarea {
+        outline: none !important;
       }
     }
 
@@ -57,6 +111,7 @@
     margin-top: 20px;
     height: 2rem;
     overflow-y: hidden;
+    z-index: -1;
 
     ul {
       list-style: none;

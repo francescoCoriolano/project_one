@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 
-const Navbar = ({ cart }) => {
-  console.log("navbar", cart);
+const Navbar = ({ cart, productsData }) => {
+  const [showSearchBar, setShowSearchBar] = useState(false);
+  const [matchingItems, setMatchingItems] = useState([]);
+  const [input, setInput] = useState("");
+
+  useEffect(() => {
+    const getItemSuggestions = (input) => {
+      let matches = productsData.filter((item) =>
+        item.title.toLowerCase().startsWith(input.toLowerCase())
+      );
+      setMatchingItems(matches);
+    };
+    getItemSuggestions(input);
+  }, [input, productsData, setMatchingItems]);
+
+  const triggerSearchBar = () => {
+    setShowSearchBar(!showSearchBar);
+    setInput("");
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-top">
@@ -21,10 +40,42 @@ const Navbar = ({ cart }) => {
             <li className="nav-item">sooth</li>
           </div>
           <div className="nav-top-right">
-            <li className="nav-item">
-              <FontAwesomeIcon icon={faSearch} />
+            <li className="nav-item search-wrapper">
+              <input
+                className={`search-txt ${showSearchBar ? "open" : ""} `}
+                type="text"
+                name=""
+                placeholder="Type to Search"
+                onChange={(e) => setInput(e.target.value)}
+                value={input}
+              />
+              {input !== "" &&
+                matchingItems.map((item) => (
+                  <div className="list-item" key={item.title}>
+                    <img
+                      src={item.image}
+                      alt="item-img"
+                      className="img-searchBar"
+                    />
+                    <div className="name-searchBar">{item.title}</div>
+                  </div>
+                ))}
             </li>
             <li className="nav-item">
+              <a className="search-btn" href="#a">
+                <FontAwesomeIcon
+                  icon={faSearch}
+                  onClick={() => triggerSearchBar()}
+                  className={` ${showSearchBar ? "hide" : "show"} `}
+                />
+                <FontAwesomeIcon
+                  icon={faX}
+                  onClick={() => triggerSearchBar()}
+                  className={` ${showSearchBar ? "show" : "hide"} `}
+                />
+              </a>
+            </li>
+            <li className="nav-item ">
               <a href="cart">
                 Cart
                 {cart.length !== 0 && (
