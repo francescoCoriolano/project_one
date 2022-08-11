@@ -1,19 +1,21 @@
 // import { configureStore } from "@reduxjs/toolkit";
-// import getCartItems from "./getItems-slicer";
+// import productsListReducer from "./producstListReducer";
 
 // export const store = configureStore({
 //   reducer: {
-//     cart: getCartItems,
+//     productsList: productsListReducer.reducer,
 //   },
 // });
+// console.log(store, "store");
+
+// // export default store;
+
 import { configureStore } from "@reduxjs/toolkit";
-import productsListReducer from "./producstListReducer";
+import cartReducer from "./producstListReducer";
 
 export const store = configureStore({
   reducer: {
-    productsList: productsListReducer.reducer,
+    cart: cartReducer,
+    // modal: modalReducer,
   },
 });
-console.log(store, "store");
-
-// export default store;
