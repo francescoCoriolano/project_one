@@ -56,23 +56,21 @@ import React, { useEffect } from "react";
 import CardItem from "../CardItem";
 import "./style.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductsList } from "../../store/producstListReducer";
+import { getMostRated } from "../../store/producstListReducer";
 
 const ProductsOverview = ({ addItemToCart }) => {
   const dispatch = useDispatch();
   // const productsList = useSelector((state) => state);
-  const products = JSON.parse(localStorage.getItem("productsData"));
+  // const products = JSON.parse(localStorage.getItem("productsData"));
 
-  // useEffect(() => {
-  //   dispatch(getProductsList());
-  // }, []);
+  const { productsList } = useSelector((store) => store.producstListReducer);
 
-  const { cartItems } = useSelector((store) => store.cart);
-
-  const mostRated = products
-    ?.sort((a, b) => b.rating.rate - a.rating.rate)
-    .splice(0, 4);
-
+  // const mostRated = products
+  //   ?.sort((a, b) => b.rating.rate - a.rating.rate)
+  //   .splice(0, 4);
+  useEffect(() => {
+    dispatch(getMostRated());
+  }, []);
   return (
     <div className="products-overview">
       <div className="title-container">
@@ -84,7 +82,7 @@ const ProductsOverview = ({ addItemToCart }) => {
         <span className="all-products">Shop all products</span>
       </div>
       <div className="products-container">
-        {cartItems?.map((item) => {
+        {productsList?.map((item) => {
           return (
             <CardItem
               category={item.category}

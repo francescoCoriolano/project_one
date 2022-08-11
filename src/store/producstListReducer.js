@@ -47,17 +47,13 @@ import axios from "axios";
 const url = "https://fakestoreapi.com/products";
 
 const initialState = {
-  cartItems: [],
+  productsList: [],
 };
 
-export const getCartItems = createAsyncThunk(
-  "cart/getCartItems",
+export const getProductsList = createAsyncThunk(
+  "cart/getProductsList",
   async (name, thunkAPI) => {
     try {
-      // console.log(name);
-      // console.log(thunkAPI);
-      // console.log(thunkAPI.getState());
-      // thunkAPI.dispatch(openModal());
       const resp = await axios(url);
 
       return resp.data;
@@ -67,55 +63,39 @@ export const getCartItems = createAsyncThunk(
   }
 );
 
-const cartSlice = createSlice({
-  name: "cart",
+const productsListSlice = createSlice({
+  name: "products",
   initialState,
-  reducers: {},
-  // {
-  //   clearCart: (state) => {
-  //     state.cartItems = [];
-  //   },
-  //   removeItem: (state, action) => {
-  //     const itemId = action.payload;
-  //     state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
-  //   },
-  //   increase: (state, { payload }) => {
-  //     const cartItem = state.cartItems.find((item) => item.id === payload.id);
-  //     cartItem.amount = cartItem.amount + 1;
-  //   },
-  //   decrease: (state, { payload }) => {
-  //     const cartItem = state.cartItems.find((item) => item.id === payload.id);
-  //     cartItem.amount = cartItem.amount - 1;
-  //   },
-  //   calculateTotals: (state) => {
-  //     let amount = 0;
-  //     let total = 0;
-  //     state.cartItems.forEach((item) => {
-  //       amount += item.amount;
-  //       total += item.amount * item.price;
-  //     });
-  //     state.amount = amount;
-  //     state.total = total;
-  //   },
-  // },
+  reducers: {
+    getMostRated: (state) => {
+      state.productsList = state.productsList
+        .sort((a, b) => b.rating.rate - a.rating.rate)
+        .splice(0, 4);
+    },
+    // getMostPopular: (state) => {
+    //   state.productsList = state.productsList
+    //     .sort((a, b) => b.rating.rate - a.rating.rate)
+    //     .splice(0, 8);
+    // },
+  },
+
   extraReducers: {
-    [getCartItems.pending]: (state) => {
+    [getProductsList.pending]: (state) => {
       state.isLoading = true;
     },
-    [getCartItems.fulfilled]: (state, action) => {
+    [getProductsList.fulfilled]: (state, action) => {
       // console.log(action);
       state.isLoading = false;
-      state.cartItems = action.payload;
+      state.productsList = action.payload;
     },
-    [getCartItems.rejected]: (state, action) => {
+    [getProductsList.rejected]: (state, action) => {
       console.log(action);
       state.isLoading = false;
     },
   },
 });
 
-// console.log(cartSlice);
-// export const { clearCart, removeItem, increase, decrease, calculateTotals } =
-//   cartSlice.actions;
+// console.log(productsListSlice);
+export const { getMostRated, getMostPopular } = productsListSlice.actions;
 
-export default cartSlice.reducer;
+export default productsListSlice.reducer;

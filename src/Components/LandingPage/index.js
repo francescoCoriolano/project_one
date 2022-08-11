@@ -30,9 +30,10 @@ import RecomendedItems from "../RecomendedItems";
 import "./style.scss";
 
 const LandingPage = ({ addItemToCart, productsData }) => {
-  useEffect(() => {
-    localStorage.setItem("productsData", JSON.stringify(productsData));
-  }, [productsData]);
+  ///// REMOVED TEMPORARILY
+  // useEffect(() => {
+  //   localStorage.setItem("productsData", JSON.stringify(productsData));
+  // }, [productsData]);
 
   return (
     <div>

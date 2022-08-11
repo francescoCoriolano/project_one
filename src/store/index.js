@@ -11,11 +11,11 @@
 // // export default store;
 
 import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "./producstListReducer";
+import producstListReducer from "./producstListReducer";
 
 export const store = configureStore({
   reducer: {
-    cart: cartReducer,
+    producstListReducer: producstListReducer,
     // modal: modalReducer,
   },
 });

@@ -78,7 +78,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartItems } from "./store/producstListReducer";
+import { getProductsList } from "./store/producstListReducer";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
@@ -92,37 +92,24 @@ function App() {
   const dispatch = useDispatch();
   const producstList = useSelector((state) => state);
 
-  // const getProductsData = () => {
-  //   axios
-  //     .get("https://fakestoreapi.com/products")
-  //     .then(function (response) {
-  //       setProductsData(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
+  useEffect(() => {
+    dispatch(getProductsList());
+  }, []);
+
+  ///// REMOVED TEMPORARILY
+  // const addItemToCart = (id) => {
+  //   setCart([...cart, id]);
+  //   localStorage.setItem("cartData", JSON.stringify([...cart, id]));
   // };
 
+  ///// REMOVED TEMPORARILY
   // useEffect(() => {
-  //   getProductsData();
+  //   const cartItems = JSON.parse(localStorage.getItem("cartData"));
+  //   if (cartItems) {
+  //     setCart(cartItems);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, []);
-
-  useEffect(() => {
-    dispatch(getCartItems("random"));
-  }, []);
-
-  const addItemToCart = (id) => {
-    setCart([...cart, id]);
-    localStorage.setItem("cartData", JSON.stringify([...cart, id]));
-  };
-
-  useEffect(() => {
-    const cartItems = JSON.parse(localStorage.getItem("cartData"));
-    if (cartItems) {
-      setCart(cartItems);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <BrowserRouter>
@@ -134,7 +121,7 @@ function App() {
             path="/"
             element={
               <LandingPage
-                addItemToCart={addItemToCart}
+                // addItemToCart={addItemToCart}
                 cart={cart}
                 productsData={productsData}
               />
@@ -142,7 +129,6 @@ function App() {
           />
         </Routes>
         <Footer />
-        {JSON.stringify(producstList)}
       </div>
     </BrowserRouter>
   );
