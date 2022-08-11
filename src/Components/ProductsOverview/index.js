@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CardItem from "../CardItem";
 import "./style.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductsList } from "../../store/producstListReducer";
 
 const ProductsOverview = ({ addItemToCart }) => {
+  const dispatch = useDispatch();
+  const producstList = useSelector((state) => state);
   const products = JSON.parse(localStorage.getItem("productsData"));
+
+  // useEffect(() => {
+  //   dispatch(getProductsList());
+  // }, []);
+
+  const productsListJson = JSON.stringify(producstList);
+  console.log("fraaa", productsListJson);
 
   const mostRated = products
     ?.sort((a, b) => b.rating.rate - a.rating.rate)
