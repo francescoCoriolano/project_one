@@ -66,6 +66,9 @@ const ProductsOverview = ({ addItemToCart }) => {
   }, [dispatch]);
 
   const { productsList } = useSelector((store) => store.producstListReducer);
+  // const mostRated = products
+  //     ?.sort((a, b) => b.rating.rate - a.rating.rate)
+  //     .splice(0, 4);
 
   return (
     <div className="products-overview">
