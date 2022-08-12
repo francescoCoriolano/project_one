@@ -2,20 +2,15 @@ import React, { useEffect } from "react";
 import "./style.scss";
 import CardItem from "../CardItem";
 import { useDispatch, useSelector } from "react-redux";
-import { getMostPopular, getMostRated } from "../../store/producstListReducer";
+import { getMostPopular } from "../../store/producstListReducer";
+
 const RecomendedItems = ({ addItemToCart }) => {
   const dispatch = useDispatch();
 
-  const { cartItems } = useSelector((store) => store.producstListReducer);
-
-  // useEffect(() => {
-  //   dispatch(getMostPopular());
-  // }, []);
-  // const products = JSON.parse(localStorage.getItem("productsData"));
-
-  // const mostPopular = products
-  //   ?.sort((a, b) => b.rating.rate - a.rating.rate)
-  //   .splice(0, 8);
+  useEffect(() => {
+    dispatch(getMostPopular());
+  }, [dispatch]);
+  const { productsList } = useSelector((store) => store.producstListReducer);
 
   return (
     <div className="recomended-items">
@@ -24,7 +19,7 @@ const RecomendedItems = ({ addItemToCart }) => {
         <span className="all-products">Shop all products</span>
       </div>
       <div className="products-container">
-        {cartItems?.map((item) => {
+        {productsList?.map((item) => {
           return (
             <CardItem
               category={item.category}

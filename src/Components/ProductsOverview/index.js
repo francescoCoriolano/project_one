@@ -60,17 +60,13 @@ import { getMostRated } from "../../store/producstListReducer";
 
 const ProductsOverview = ({ addItemToCart }) => {
   const dispatch = useDispatch();
-  // const productsList = useSelector((state) => state);
-  // const products = JSON.parse(localStorage.getItem("productsData"));
+
+  useEffect(() => {
+    dispatch(getMostRated());
+  }, [dispatch]);
 
   const { productsList } = useSelector((store) => store.producstListReducer);
 
-  // const mostRated = products
-  //   ?.sort((a, b) => b.rating.rate - a.rating.rate)
-  //   .splice(0, 4);
-  useEffect(() => {
-    dispatch(getMostRated());
-  }, []);
   return (
     <div className="products-overview">
       <div className="title-container">

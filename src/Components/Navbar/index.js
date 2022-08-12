@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSelector } from "react-redux";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 
-const Navbar = ({ cart, productsData }) => {
+const Navbar = ({ cart }) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [matchingItems, setMatchingItems] = useState([]);
   const [input, setInput] = useState("");
 
+  const { productsList } = useSelector((store) => store.producstListReducer);
+
   useEffect(() => {
     const getItemSuggestions = (input) => {
-      let matches = productsData.filter((item) =>
+      let matches = productsList.filter((item) =>
         item.title.toLowerCase().startsWith(input.toLowerCase())
       );
       setMatchingItems(matches);
     };
     getItemSuggestions(input);
-  }, [input, productsData, setMatchingItems]);
+  }, [input, productsList, setMatchingItems]);
 
   const triggerSearchBar = () => {
     setShowSearchBar(!showSearchBar);

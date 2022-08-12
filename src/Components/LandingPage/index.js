@@ -22,19 +22,14 @@
 
 // export default LandingPage;
 
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "../Header";
 import ProductsOverview from "../ProductsOverview";
 import ShopSection from "../ShopSection";
 import RecomendedItems from "../RecomendedItems";
 import "./style.scss";
 
-const LandingPage = ({ addItemToCart, productsData }) => {
-  ///// REMOVED TEMPORARILY
-  // useEffect(() => {
-  //   localStorage.setItem("productsData", JSON.stringify(productsData));
-  // }, [productsData]);
-
+const LandingPage = ({ addItemToCart }) => {
   return (
     <div>
       <Header />
