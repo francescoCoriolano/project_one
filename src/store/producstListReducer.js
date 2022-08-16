@@ -5,6 +5,7 @@ const url = "https://fakestoreapi.com/products";
 
 const initialState = {
   productsList: [],
+  isLoading: true,
 };
 
 export const getProductsList = createAsyncThunk(
@@ -25,14 +26,10 @@ const productsListSlice = createSlice({
   initialState,
   reducers: {
     getMostRated: (state, { payload }) => {
-      state.productsList = state.productsList
-        .sort((a, b) => b.rating.rate - a.rating.rate)
-        .splice(0, 4);
+      state.productsList = state.productsList;
     },
     getMostPopular: (state, { payload }) => {
-      state.productsList = state.productsList
-        .sort((a, b) => b.rating.rate - a.rating.rate)
-        .splice(0, 8);
+      state.productsList = state.productsList;
     },
   },
 
