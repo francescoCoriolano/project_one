@@ -9,7 +9,7 @@ const LandingPage = ({ addItemToCart }) => {
   return (
     <div>
       <Header />
-      <ProductsOverview />
+      <ProductsOverview addItemToCart={addItemToCart} />
       <ShopSection />
       <RecomendedItems addItemToCart={addItemToCart} />
     </div>
