@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardItem from "../CardItem";
 import "./style.scss";
+import { useSelector } from "react-redux";
 
 const ProductsOverview = ({ addItemToCart }) => {
-  const products = JSON.parse(localStorage.getItem("productsData"));
+  const [mostRated, setMostRated] = useState([]);
 
-  const mostRated = products
-    ?.sort((a, b) => b.rating.rate - a.rating.rate)
-    .splice(0, 4);
+  const productsList = useSelector((store) => store.producstListReducer);
+
+  useEffect(() => {
+    let products = [...productsList.productsList];
+
+    setMostRated(
+      products?.sort((a, b) => b.rating.rate - a.rating.rate).splice(0, 4)
+    );
+  }, [productsList]);
 
   return (
     <div className="products-overview">
@@ -19,22 +26,26 @@ const ProductsOverview = ({ addItemToCart }) => {
         <span className="popular-product">Most popular</span>
         <span className="all-products">Shop all products</span>
       </div>
-      <div className="products-container">
-        {mostRated?.map((item) => {
-          return (
-            <CardItem
-              category={item.category}
-              name={item.title}
-              image={item.image}
-              description={item.description}
-              price={item.price}
-              key={item.id}
-              id={item.id}
-              addItemToCart={addItemToCart}
-            />
-          );
-        })}
-      </div>
+      {productsList.isLoading ? (
+        "loading "
+      ) : (
+        <div className="products-container">
+          {mostRated?.map((item) => {
+            return (
+              <CardItem
+                category={item.category}
+                name={item.title}
+                image={item.image}
+                description={item.description}
+                price={item.price}
+                key={item.id}
+                id={item.id}
+                addItemToCart={addItemToCart}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import CardItem from "../CardItem";
+import { useSelector } from "react-redux";
 
 const RecomendedItems = ({ addItemToCart }) => {
-  const products = JSON.parse(localStorage.getItem("productsData"));
+  const [mostPopular, setMostPopular] = useState([]);
 
-  const mostPopular = products
-    ?.sort((a, b) => b.rating.rate - a.rating.rate)
-    .splice(0, 8);
+  const productsList = useSelector((store) => store.producstListReducer);
 
+  useEffect(() => {
+    let products = [...productsList.productsList];
+
+    setMostPopular(
+      products?.sort((a, b) => b.rating.rate - a.rating.rate).splice(0, 8)
+    );
+  }, [productsList]);
   return (
     <div className="recomended-items">
       <div className="recomended-products">
