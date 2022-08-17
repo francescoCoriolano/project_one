@@ -20,7 +20,6 @@ function App() {
   const addItemToCart = (id) => {
     setCart([...cart, id]);
     localStorage.setItem("cartData", JSON.stringify([...cart, id]));
-    console.log("cart", cart);
   };
 
   useEffect(() => {
