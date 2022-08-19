@@ -82,9 +82,9 @@ const Navbar = ({ cart }: { cart: number[] }) => {
             <li className="nav-item ">
               <a href="cart">
                 Cart
-                {cart.length !== 0 && (
-                  <span ref="cart-item">({cart?.length})</span>
-                )}
+                {/* {cart.length !== 0 && (
+                  <span href="cart-item">({cart?.length})</span>
+                )} */}
               </a>
             </li>
 
