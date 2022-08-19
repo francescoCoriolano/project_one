@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import * as React from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getProductsList } from "./store/producstListReducer";
@@ -7,23 +8,24 @@ import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import "./App.scss";
 import Footer from "./components/Footer";
-
+import { useAppDispatch } from "./store/producstListReducer";
+import { IItem } from "../src/helpers/interfaces";
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<number[]>([]);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getProductsList());
   }, [dispatch]);
 
-  const addItemToCart = (id) => {
+  const addItemToCart = (id: number) => {
     setCart([...cart, id]);
     localStorage.setItem("cartData", JSON.stringify([...cart, id]));
   };
 
   useEffect(() => {
-    const cartItems = JSON.parse(localStorage.getItem("cartData"));
+    const cartItems = JSON.parse(localStorage.getItem("cartData") || "");
     if (cartItems) {
       setCart(cartItems);
     }
@@ -35,10 +37,10 @@ function App() {
       <div className="App">
         <Navbar cart={cart} />
         <Routes>
-          <Route path="/login" element={<Login cart={cart} />} />
+          <Route path="/login" element={<Login />} />
           <Route
             path="/"
-            element={<LandingPage addItemToCart={addItemToCart} cart={cart} />}
+            element={<LandingPage addItemToCart={addItemToCart} />}
           />
         </Routes>
         <Footer />

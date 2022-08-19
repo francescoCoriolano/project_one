@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import * as React from "react";
+import { useEffect, useState } from "react";
 import CardItem from "../CardItem";
 import "./style.scss";
-import { useSelector } from "react-redux";
+import { IItem } from "../../helpers/interfaces";
+import { useAppSelector } from "../../helpers/hooks";
+import { IAddToCart } from "../../helpers/interfaces";
+const ProductsOverview = ({ addItemToCart }: { addItemToCart: IAddToCart }) => {
+  const [mostRated, setMostRated] = useState<IItem[]>([]);
 
-const ProductsOverview = ({ addItemToCart }) => {
-  const [mostRated, setMostRated] = useState([]);
-
-  const productsList = useSelector((store) => store.producstListReducer);
+  const productsList = useAppSelector((store) => store.producstListReducer);
 
   useEffect(() => {
     let products = [...productsList.productsList];
@@ -34,12 +36,13 @@ const ProductsOverview = ({ addItemToCart }) => {
             return (
               <CardItem
                 category={item.category}
-                name={item.title}
+                title={item.title}
                 image={item.image}
                 description={item.description}
                 price={item.price}
                 key={item.id}
                 id={item.id}
+                rating={item.rating}
                 addItemToCart={addItemToCart}
               />
             );

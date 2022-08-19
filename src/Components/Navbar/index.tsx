@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import * as React from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSelector } from "react-redux";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
+import { IItem } from "../../helpers/interfaces";
+import { useAppSelector } from "../../helpers/hooks";
+const Navbar = ({ cart }: { cart: number[] }) => {
+  const [showSearchBar, setShowSearchBar] = useState<boolean>(false); //here
+  const [matchingItems, setMatchingItems] = useState<IItem[]>([]); //here
+  const [input, setInput] = useState<string>("");
 
-const Navbar = ({ cart }) => {
-  const [showSearchBar, setShowSearchBar] = useState(false);
-  const [matchingItems, setMatchingItems] = useState([]);
-  const [input, setInput] = useState("");
-
-  const { productsList } = useSelector((store) => store.producstListReducer);
+  const { productsList } = useAppSelector((store) => store.producstListReducer);
 
   useEffect(() => {
-    const getItemSuggestions = (input) => {
+    const getItemSuggestions = (input: string) => {
       let matches = productsList.filter((item) =>
         item.title.toLowerCase().startsWith(input.toLowerCase())
       );
@@ -82,7 +83,7 @@ const Navbar = ({ cart }) => {
               <a href="cart">
                 Cart
                 {cart.length !== 0 && (
-                  <span href="cart-item">({cart?.length})</span>
+                  <span ref="cart-item">({cart?.length})</span>
                 )}
               </a>
             </li>

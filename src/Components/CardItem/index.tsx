@@ -1,19 +1,19 @@
-import React from "react";
+import * as React from "react";
 import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-
+import { IItem } from "../../helpers/interfaces";
 const CardItem = ({
   image,
-  name,
+  title,
   description,
   price,
   category,
   id,
   addItemToCart,
-}) => {
+}: IItem & { addItemToCart: (id: number) => void }) => {
   const newPrice = price - price * 0.15;
-  const isWoman = name.includes("Women");
+  const isWoman = title.includes("Women");
 
   return (
     <div>
@@ -24,7 +24,7 @@ const CardItem = ({
           <img src={image} alt="product-img" />
         </div>
         <div className="item-description-wrapper">
-          <h3 className="item-name">{name}</h3>
+          <h3 className="item-name">{title}</h3>
           <p className="item-description">{description}</p>
           <div className="price-wrapper">
             {isWoman ? (

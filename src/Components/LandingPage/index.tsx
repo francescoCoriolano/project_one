@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from "react";
 import Header from "../Header";
 import ProductsOverview from "../ProductsOverview";
 import ShopSection from "../ShopSection";
 import RecomendedItems from "../RecomendedItems";
 import "./style.scss";
-
-const LandingPage = ({ addItemToCart }) => {
+import { IAddToCart } from "../../helpers/interfaces";
+const LandingPage = ({ addItemToCart }: { addItemToCart: IAddToCart }) => {
   return (
     <div>
       <Header />
