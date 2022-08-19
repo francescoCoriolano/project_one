@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
+import CartContext from "../../context/cartContext";
 
-const Navbar = ({ cart }) => {
+const Navbar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [matchingItems, setMatchingItems] = useState([]);
   const [input, setInput] = useState("");
-
+  const { itemsCart } = useContext(CartContext);
   const { productsList } = useSelector((store) => store.producstListReducer);
 
   useEffect(() => {
@@ -81,8 +82,8 @@ const Navbar = ({ cart }) => {
             <li className="nav-item ">
               <a href="cart">
                 Cart
-                {cart.length !== 0 && (
-                  <span href="cart-item">({cart?.length})</span>
+                {itemsCart.length !== 0 && (
+                  <span href="cart-item">({itemsCart?.length})</span>
                 )}
               </a>
             </li>

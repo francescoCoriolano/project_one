@@ -3,7 +3,7 @@ import "./style.scss";
 import CardItem from "../CardItem";
 import { useSelector } from "react-redux";
 
-const RecomendedItems = ({ addItemToCart }) => {
+const RecomendedItems = () => {
   const [mostPopular, setMostPopular] = useState([]);
 
   const productsList = useSelector((store) => store.producstListReducer);
@@ -32,7 +32,6 @@ const RecomendedItems = ({ addItemToCart }) => {
               price={item.price}
               key={item.id}
               id={item.id}
-              addItemToCart={addItemToCart}
             />
           );
         })}

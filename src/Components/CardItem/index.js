@@ -1,20 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../context/cartContext";
 import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-const CardItem = ({
-  image,
-  name,
-  description,
-  price,
-  category,
-  id,
-  addItemToCart,
-}) => {
+const CardItem = ({ image, name, description, price, category, id }) => {
   const newPrice = price - price * 0.15;
   const isWoman = name.includes("Women");
-
+  const { addToCart } = useContext(CartContext);
   return (
     <div>
       <div className="card-item">
@@ -42,7 +35,7 @@ const CardItem = ({
             </span>
           </div>
 
-          <button className="add-product-btn" onClick={() => addItemToCart(id)}>
+          <button className="add-product-btn" onClick={() => addToCart(id)}>
             <FontAwesomeIcon icon={faCartShopping} />
             <span>Add to cart</span>
           </button>

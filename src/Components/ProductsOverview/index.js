@@ -3,7 +3,7 @@ import CardItem from "../CardItem";
 import "./style.scss";
 import { useSelector } from "react-redux";
 
-const ProductsOverview = ({ addItemToCart }) => {
+const ProductsOverview = () => {
   const [mostRated, setMostRated] = useState([]);
 
   const productsList = useSelector((store) => store.producstListReducer);
@@ -40,7 +40,6 @@ const ProductsOverview = ({ addItemToCart }) => {
                 price={item.price}
                 key={item.id}
                 id={item.id}
-                addItemToCart={addItemToCart}
               />
             );
           })}
