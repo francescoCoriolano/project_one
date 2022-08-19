@@ -6,9 +6,10 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 import { IItem } from "../../helpers/interfaces";
 import { useAppSelector } from "../../helpers/hooks";
+
 const Navbar = ({ cart }: { cart: number[] }) => {
-  const [showSearchBar, setShowSearchBar] = useState<boolean>(false); //here
-  const [matchingItems, setMatchingItems] = useState<IItem[]>([]); //here
+  const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
+  const [matchingItems, setMatchingItems] = useState<IItem[]>([]);
   const [input, setInput] = useState<string>("");
 
   const { productsList } = useAppSelector((store) => store.producstListReducer);

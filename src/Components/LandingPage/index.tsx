@@ -5,6 +5,7 @@ import ShopSection from "../ShopSection";
 import RecomendedItems from "../RecomendedItems";
 import "./style.scss";
 import { IAddToCart } from "../../helpers/interfaces";
+
 const LandingPage = ({ addItemToCart }: { addItemToCart: IAddToCart }) => {
   return (
     <div>

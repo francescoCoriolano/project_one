@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IItem } from "../helpers/interfaces";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
@@ -33,14 +33,14 @@ const productsListSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    // [getProductsList.pending]: (state) => {
+    // [getProductsList.pending]: (state: any) => {
     //   state.isLoading = true;
     // },
-    // [getProductsList.fulfilled]: (state, action) => {
+    // [getProductsList.fulfilled]: (state: any, action: PayloadAction <any>) => {
     //   state.isLoading = false;
     //   state.productsList = action.payload;
     // },
-    // [getProductsList.rejected]: (state, action) => {
+    // [getProductsList.rejected]: (state: any, action: PayloadAction <any>) => {
     //   state.isLoading = false;
     // },
   },

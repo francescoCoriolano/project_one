@@ -5,6 +5,7 @@ import "./style.scss";
 import { IItem } from "../../helpers/interfaces";
 import { useAppSelector } from "../../helpers/hooks";
 import { IAddToCart } from "../../helpers/interfaces";
+
 const ProductsOverview = ({ addItemToCart }: { addItemToCart: IAddToCart }) => {
   const [mostRated, setMostRated] = useState<IItem[]>([]);
 
@@ -29,7 +30,7 @@ const ProductsOverview = ({ addItemToCart }: { addItemToCart: IAddToCart }) => {
         <span className="all-products">Shop all products</span>
       </div>
       {productsList.isLoading ? (
-        "loading "
+        "loading products..."
       ) : (
         <div className="products-container">
           {mostRated?.map((item) => {

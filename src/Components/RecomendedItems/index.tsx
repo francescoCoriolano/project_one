@@ -6,7 +6,7 @@ import { IItem, IAddToCart } from "../../helpers/interfaces";
 import { useAppSelector } from "../../helpers/hooks";
 
 const RecomendedItems = ({ addItemToCart }: { addItemToCart: IAddToCart }) => {
-  const [mostPopular, setMostPopular] = useState<IItem[]>([]); //check this
+  const [mostPopular, setMostPopular] = useState<IItem[]>([]);
 
   const productsList = useAppSelector((store) => store.producstListReducer);
 
