@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getProductsList } from "./store/producstListReducer";
 import Login from "./components/Login";
+import { CartProvider } from "./context/cartContext";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
-import "./App.scss";
 import Footer from "./components/Footer";
-import { CartProvider } from "./context/cartContext";
+import "./App.scss";
 
 function App() {
   const dispatch = useDispatch();

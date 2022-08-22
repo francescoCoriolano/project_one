@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import CartContext from "../../context/cartContext";
-import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import "./style.scss";
 
 const CardItem = ({ image, name, description, price, category, id }) => {
   const newPrice = price - price * 0.15;
