@@ -2,12 +2,12 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getProductsList } from "./store/producstListReducer";
+import { useAppDispatch } from "./store/producstListReducer";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
-import "./App.scss";
 import Footer from "./components/Footer";
-import { useAppDispatch } from "./store/producstListReducer";
+import "./App.scss";
 
 function App() {
   const [cart, setCart] = useState<number[]>([]);
