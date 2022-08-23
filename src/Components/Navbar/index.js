@@ -10,8 +10,8 @@ const Navbar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [matchingItems, setMatchingItems] = useState([]);
   const [input, setInput] = useState("");
-  const { itemsCart } = useContext(CartContext);
   const { productsList } = useSelector((store) => store.producstListReducer);
+  const { itemsCart } = useContext(CartContext);
 
   useEffect(() => {
     const getItemSuggestions = (input) => {
@@ -82,7 +82,7 @@ const Navbar = () => {
             <li className="nav-item ">
               <a href="cart">
                 Cart
-                {itemsCart.length !== 0 && (
+                {itemsCart?.length !== 0 && (
                   <span href="cart-item">({itemsCart?.length})</span>
                 )}
               </a>

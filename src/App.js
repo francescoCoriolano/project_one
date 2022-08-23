@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getProductsList } from "./store/producstListReducer";
+import { getProductsList } from "./reducers/producstListReducer";
 import Login from "./components/Login";
 import { CartProvider } from "./context/cartContext";
 import Navbar from "./components/Navbar";
