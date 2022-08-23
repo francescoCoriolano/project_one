@@ -23,13 +23,13 @@ function App() {
     localStorage.setItem("cartData", JSON.stringify([...cart, id]));
   };
 
-  useEffect(() => {
-    const cartItems = JSON.parse(localStorage.getItem("cartData") || "");
-    if (cartItems) {
-      setCart(cartItems);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   const cartItems = JSON.parse(localStorage.getItem("cartData") || "");
+  //   if (cartItems) {
+  //     setCart(cartItems);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <BrowserRouter>
