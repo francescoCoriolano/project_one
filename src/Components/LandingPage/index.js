@@ -5,13 +5,13 @@ import ShopSection from "../ShopSection";
 import RecomendedItems from "../RecomendedItems";
 import "./style.scss";
 
-const LandingPage = ({ addItemToCart }) => {
+const LandingPage = () => {
   return (
     <div>
       <Header />
-      <ProductsOverview addItemToCart={addItemToCart} />
+      <ProductsOverview />
       <ShopSection />
-      <RecomendedItems addItemToCart={addItemToCart} />
+      <RecomendedItems />
     </div>
   );
 };
