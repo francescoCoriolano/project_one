@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getProductsList } from "./reducers/producstListReducer";
 import Login from "./components/Login";
 import Registration from "./components/Registration";
-import { CartProvider } from "./context/cartContext";
+import { AuthProvider } from "./context/Auth";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import "./App.scss";
@@ -17,18 +17,18 @@ function App() {
   }, [dispatch]);
 
   return (
-    <CartProvider>
-      <BrowserRouter>
+    <AuthProvider>
+      <Router>
         <div className="App">
           <Navbar />
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Registration />} />
-            <Route path="/" element={<LandingPage />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/signup" element={<Registration />} />
+            <Route exact path="/" element={<LandingPage />} />
           </Routes>
         </div>
-      </BrowserRouter>
-    </CartProvider>
+      </Router>
+    </AuthProvider>
   );
 }
 

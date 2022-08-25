@@ -1,4 +1,5 @@
 import { useState, createContext, useEffect } from "react";
+import app from "../firebase";
 
 const CartContext = createContext();
 
