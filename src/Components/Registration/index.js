@@ -128,12 +128,13 @@ const Registration = () => {
       <div className="register-page">
         <div className="register-wrapper">
           <h2>Register</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               name="email"
               type="email"
               placeholder="Email Address"
               id="email"
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <input
@@ -141,6 +142,7 @@ const Registration = () => {
               type="password"
               placeholder="Password"
               id="password"
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <input
@@ -159,7 +161,12 @@ const Registration = () => {
             <button className="btn-login">Create Account</button>
           </form>
           <p>
-            Already have an account?<span>Sing in here</span>
+            Already have an account?
+            <span>
+              <Link to="/" className="underline">
+                Sign in here.
+              </Link>
+            </span>
           </p>
         </div>
       </div>

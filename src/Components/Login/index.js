@@ -89,8 +89,8 @@ const Login = () => {
 
   return (
     <>
-      <div className="max-w-[700px] mx-auto my-16 p-4">
-        <div>
+      {/* <div className="max-w-[700px] mx-auto my-16 p-4"> */}
+      {/* <div>
           <h1 className="text-2xl font-bold py-2">Sign in to your account</h1>
           <p className="py-2">
             Don't have an account yet?{" "}
@@ -98,8 +98,8 @@ const Login = () => {
               Sign up.
             </Link>
           </p>
-        </div>
-        <form onSubmit={handleSubmit}>
+        </div> */}
+      {/* <form onSubmit={handleSubmit}>
           <div className="flex flex-col py-2">
             <label className="py-2 font-medium">Email Address</label>
             <input
@@ -120,16 +120,18 @@ const Login = () => {
             Sign In
           </button>
         </form>
-      </div>
+      </div> */}
+      {/* +++++++++++++++++++++ */}
       <div className="login-page">
         <div className="login-wrapper">
           <h2>Login</h2>
-          <form className="login-form">
+          <form className="login-form" onSubmit={handleSubmit}>
             <input
               name="email"
               type="email"
               placeholder="Email Address"
               id="email"
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <input
@@ -137,13 +139,19 @@ const Login = () => {
               type="password"
               placeholder="Password"
               id="password"
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <button className="btn-login">Continue</button>
           </form>
           <span>Forgot your password?</span>
           <p>
-            Don't have an account?<span>Register now</span>
+            Don't have an account?
+            <span>
+              <Link to="/signup" className="underline">
+                Register now.
+              </Link>
+            </span>
           </p>
         </div>
       </div>
