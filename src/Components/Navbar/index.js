@@ -5,6 +5,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 import CartContext from "../../context/cartContext";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -12,7 +14,9 @@ const Navbar = () => {
   const [input, setInput] = useState("");
   const { productsList } = useSelector((store) => store.producstListReducer);
   const { itemsCart } = useContext(CartContext);
-
+  const { isLoggedIn } = UserAuth();
+  const { logout } = UserAuth();
+  const navigate = useNavigate();
   useEffect(() => {
     const getItemSuggestions = (input) => {
       let matches = productsList.filter((item) =>
@@ -26,6 +30,16 @@ const Navbar = () => {
   const triggerSearchBar = () => {
     setShowSearchBar(!showSearchBar);
     setInput("");
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/");
+      console.log("You are logged out");
+    } catch (e) {
+      console.log(e.message);
+    }
   };
 
   return (
@@ -89,7 +103,12 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <a href="login">Login</a>
+              {!isLoggedIn && <Link to="/login">Login</Link>}
+              {isLoggedIn && (
+                <a href="logout" onClick={handleLogout}>
+                  Logout
+                </a>
+              )}
             </li>
           </div>
         </ul>

@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -11,16 +12,20 @@ const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const createUser = (email, password) => {
+    setIsLoggedIn(!isLoggedIn);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signIn = (email, password) => {
+    setIsLoggedIn(!isLoggedIn);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logout = () => {
+    setIsLoggedIn(!isLoggedIn);
     return signOut(auth);
   };
 
@@ -35,7 +40,9 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ createUser, user, logout, signIn }}>
+    <UserContext.Provider
+      value={{ createUser, user, logout, signIn, isLoggedIn }}
+    >
       {children}
     </UserContext.Provider>
   );
