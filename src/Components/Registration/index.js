@@ -11,11 +11,17 @@ const Registration = () => {
   const { createUser } = UserAuth();
   const navigate = useNavigate();
 
+  function isValidEmail(email) {
+    return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email
+    );
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
-    if (password === confirmPassword) {
+    if (isValidEmail(email) && password === confirmPassword) {
       try {
         await createUser(email, password);
         navigate("/");
@@ -23,11 +29,12 @@ const Registration = () => {
         setError(e.message);
         console.log(e.message);
       }
-    } else {
+    } else if (password !== confirmPassword) {
       alert("ERROR: Password do not match");
+    } else if (!isValidEmail(email)) {
+      alert("ERROR: please enter a correct email adress");
     }
   };
-
   return (
     <div className="register-page">
       <div className="register-wrapper">
@@ -35,7 +42,7 @@ const Registration = () => {
         <form onSubmit={handleSubmit}>
           <input
             name="email"
-            type="email"
+            type="text"
             placeholder="Email Address"
             id="email"
             onChange={(e) => setEmail(e.target.value)}
@@ -61,7 +68,7 @@ const Registration = () => {
           />
           <div className="checkbox_wrapper">
             <input type="checkbox" className="checkbox" id="subscribe" />
-            <label for="subscribe">
+            <label htmlFor="subscribe">
               Receive email updates and special promo offers?
             </label>
           </div>

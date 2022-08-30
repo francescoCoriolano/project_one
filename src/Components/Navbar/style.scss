@@ -11,6 +11,10 @@
     color: $primary-text-color;
     font-weight: bold;
     font-size: 0.87rem;
+
+    span {
+      cursor: pointer;
+    }
   }
 
   a {

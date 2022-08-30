@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
-import "./style.scss";
 import CartContext from "../../context/cartContext";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
+import "./style.scss";
 
 const Navbar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -48,7 +48,7 @@ const Navbar = () => {
         <ul>
           <div className="nav-top-left">
             <li className="nav-item">
-              <a href="about">About</a>
+              <Link to="/">About</Link>
             </li>
             <li className="nav-item">
               <a href="consultation">Consultation</a>
@@ -101,14 +101,9 @@ const Navbar = () => {
                 )}
               </a>
             </li>
-
             <li className="nav-item">
               {!isLoggedIn && <Link to="/login">Login</Link>}
-              {isLoggedIn && (
-                <a href="logout" onClick={handleLogout}>
-                  Logout
-                </a>
-              )}
+              {isLoggedIn && <span onClick={handleLogout}>Logout</span>}
             </li>
           </div>
         </ul>
