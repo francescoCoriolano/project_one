@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import Login from "./components/Login";
-
+import "./App.scss";
 function App() {
   const dispatch = useDispatch();
 

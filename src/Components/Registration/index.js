@@ -32,7 +32,7 @@ const Registration = () => {
     } else if (password !== confirmPassword) {
       alert("ERROR: Password do not match");
     } else if (!isValidEmail(email)) {
-      alert("ERROR: please enter a correct email adress");
+      alert("ERROR: please enter a correct email address");
     }
   };
   return (
