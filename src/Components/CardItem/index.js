@@ -27,7 +27,6 @@ const CardItem = ({ image, name, description, price, category, id }) => {
             ) : (
               ""
             )}
-
             <span
               className={`item-price ${isWoman ? "item-price-reduced" : ""} `}
             >
