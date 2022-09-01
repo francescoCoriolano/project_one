@@ -4,7 +4,7 @@
   @include form-page-layout;
   .login-wrapper {
     @include flex-direction-column;
-    margin-top: -400px;
+    padding-bottom: 400px;
     h2 {
       @include form-title;
     }

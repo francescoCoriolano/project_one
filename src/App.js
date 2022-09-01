@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getProductsList } from "./reducers/producstListReducer";
+import { Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Registration from "./components/Registration";
 import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar";
-import { Route, Routes } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
 import Login from "./components/Login";
 import "./App.scss";
 function App() {

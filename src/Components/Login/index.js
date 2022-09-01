@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { signIn } = UserAuth();
+  const { signIn, setIsLoggedIn } = UserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,9 +16,12 @@ const Login = () => {
     try {
       await signIn(email, password);
       navigate("/");
+      setIsLoggedIn(true);
     } catch (e) {
+      setIsLoggedIn(false);
       setError(e.message);
       console.log(e.message);
+      alert("ERROR: please enter valid credential");
     }
   };
 

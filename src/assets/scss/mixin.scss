@@ -105,8 +105,7 @@
 @mixin form-button {
   width: 350px;
   height: 47px;
-  margin-top: 1rem;
-  margin-bottom: 10px;
+  margin: 16px 0 10px 0;
   background-color: $dark-blue;
   color: $white;
   font-weight: 800;
