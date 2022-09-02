@@ -17,6 +17,8 @@ const Login = () => {
       await signIn(email, password);
       navigate("/");
       setIsLoggedIn(true);
+      localStorage.setItem("user", email);
+      console.log(email);
     } catch (e) {
       setIsLoggedIn(false);
       setError(e.message);

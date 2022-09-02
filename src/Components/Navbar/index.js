@@ -14,7 +14,7 @@ const Navbar = () => {
   const [input, setInput] = useState("");
   const { productsList } = useSelector((store) => store.producstListReducer);
   const { itemsCart } = useContext(CartContext);
-  const { isLoggedIn } = UserAuth();
+  const { isLoggedIn, user } = UserAuth();
   const { logout } = UserAuth();
   const navigate = useNavigate();
   useEffect(() => {
@@ -37,6 +37,7 @@ const Navbar = () => {
       await logout();
       navigate("/");
       console.log("You are logged out");
+      localStorage.removeItem("user");
     } catch (e) {
       console.log(e.message);
     }

@@ -25,6 +25,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const logout = () => {
     setIsLoggedIn(!isLoggedIn);
+
     return signOut(auth);
   };
 
@@ -40,7 +41,15 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ createUser, user, logout, signIn, isLoggedIn, setIsLoggedIn }}
+      value={{
+        createUser,
+        user,
+        setUser,
+        logout,
+        signIn,
+        isLoggedIn,
+        setIsLoggedIn,
+      }}
     >
       {children}
     </UserContext.Provider>

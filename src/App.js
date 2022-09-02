@@ -7,13 +7,24 @@ import Registration from "./components/Registration";
 import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
+import { UserAuth } from "./context/AuthContext";
 import "./App.scss";
 function App() {
+  const { setUser, setIsLoggedIn } = UserAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProductsList());
   }, [dispatch]);
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.stringify(loggedInUser);
+      setUser(foundUser);
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <div>
